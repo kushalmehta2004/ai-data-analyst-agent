@@ -4,6 +4,7 @@ Phase 1: Unit tests for file_parser module.
 """
 
 import io
+import importlib.util
 import json
 
 import numpy as np
@@ -11,7 +12,15 @@ import pandas as pd
 import pytest
 from unittest.mock import MagicMock
 
+from agent.prompt import build_system_prompt
+from agent.core import DataAnalystAgent, ReActStep
+from agent.memory import SessionMemory
+from agent.tools import AgentTools
+from executor.local_exec import run_code
 from parser.file_parser import extract_schema, get_excel_sheet_names, load_file
+from renderer.output import detect_output_type, render_chart, render_dataframe, render_output
+
+HAS_OPENPYXL = importlib.util.find_spec("openpyxl") is not None
 
 
 # ---------------------------------------------------------------------------
@@ -89,6 +98,7 @@ class TestLoadCSV:
 # load_file — Excel
 # ---------------------------------------------------------------------------
 
+@pytest.mark.skipif(not HAS_OPENPYXL, reason="openpyxl is not installed")
 class TestLoadExcel:
     def test_basic_excel_load(self):
         f = make_excel_file(SAMPLE_DF)
@@ -217,6 +227,7 @@ class TestExtractSchema:
 # get_excel_sheet_names
 # ---------------------------------------------------------------------------
 
+@pytest.mark.skipif(not HAS_OPENPYXL, reason="openpyxl is not installed")
 class TestGetExcelSheetNames:
     def test_returns_sheet_names(self):
         buf = io.BytesIO()
@@ -231,3 +242,317 @@ class TestGetExcelSheetNames:
     def test_returns_empty_for_csv(self):
         f = make_csv_file(SAMPLE_DF)
         assert get_excel_sheet_names(f) == []
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 - prompt and execution
+# ---------------------------------------------------------------------------
+
+class TestPromptBuilder:
+    def test_build_system_prompt_includes_schema(self):
+        schema = extract_schema(SAMPLE_DF)
+        prompt = build_system_prompt(schema)
+        assert "Columns and types" in prompt
+        assert "Revenue" in prompt
+        assert "Row count: 3" in prompt
+        assert "dataframe is pre-loaded as `df`" in prompt
+        assert "prior_results" in prompt
+
+
+class TestLocalExecutor:
+    def test_run_code_returns_dataframe_result(self):
+        code = "result = df.groupby('Region', as_index=False)['Revenue'].mean()"
+        output = run_code(code=code, df=SAMPLE_DF)
+        assert output["stderr"] == ""
+        assert output["outputs"]["result_type"] == "dataframe"
+
+    def test_run_code_captures_stdout(self):
+        code = "print('hello from executor')\nresult = None"
+        output = run_code(code=code, df=SAMPLE_DF)
+        assert "hello from executor" in output["stdout"]
+
+    def test_run_code_captures_matplotlib_figures(self):
+        code = (
+            "import matplotlib.pyplot as plt\n"
+            "plt.figure()\n"
+            "df['Revenue'].plot(kind='bar')\n"
+            "result = None"
+        )
+        output = run_code(code=code, df=SAMPLE_DF)
+        assert output["stderr"] == ""
+        assert len(output["outputs"].get("figures", [])) >= 1
+
+    def test_run_code_exposes_prior_results(self):
+        prior_df = SAMPLE_DF.groupby("Region", as_index=False)["Revenue"].sum()
+        code = "result = prior_results[-1]"
+        output = run_code(
+            code=code,
+            df=SAMPLE_DF,
+            prior_results=[prior_df.to_json(orient="split")],
+        )
+        assert output["stderr"] == ""
+        assert output["outputs"]["result_type"] == "dataframe"
+
+
+class TestAgentTools:
+    def test_describe_data_contains_schema(self):
+        schema = extract_schema(SAMPLE_DF)
+        tools = AgentTools(df=SAMPLE_DF, schema=schema)
+        description = tools.describe_data()
+        assert "Schema summary" in description
+        assert "Row count" in description
+        assert "Revenue" in description
+
+
+class TestSessionMemory:
+    def test_sliding_window_keeps_recent_messages(self):
+        memory = SessionMemory(max_messages=3)
+        memory.add_turn("user", "q1")
+        memory.add_turn("assistant", "a1")
+        memory.add_turn("user", "q2")
+        memory.add_turn("assistant", "a2")
+
+        history = memory.get_history()
+        assert len(history) == 3
+        assert history[0]["content"] == "a1"
+        assert history[-1]["content"] == "a2"
+
+
+class TestRendererOutput:
+    def test_render_dataframe_returns_html_table(self):
+        html = render_dataframe(SAMPLE_DF.head(2))
+        assert "<table" in html
+        assert "Alice" in html
+
+    def test_render_chart_decodes_base64(self):
+        raw = b"fake-png-bytes"
+        decoded = render_chart(raw)
+        assert decoded == raw
+        assert isinstance(decoded, bytes)
+
+    def test_detect_output_type_table(self):
+        exec_result = {
+            "stdout": "",
+            "stderr": "",
+            "outputs": {
+                "result_type": "dataframe",
+                "result": SAMPLE_DF.to_json(orient="split"),
+                "figures": [],
+            },
+        }
+        assert detect_output_type(exec_result) == "table"
+
+    def test_detect_output_type_chart(self):
+        exec_result = {
+            "stdout": "",
+            "stderr": "",
+            "outputs": {
+                "result_type": "none",
+                "result": None,
+                "figures": ["ZmFrZQ=="],
+            },
+        }
+        assert detect_output_type(exec_result) == "chart"
+
+    def test_render_output_supports_mixed_content(self):
+        exec_result = {
+            "stdout": "Summary line",
+            "stderr": "",
+            "outputs": {
+                "result_type": "dataframe",
+                "result": SAMPLE_DF.head(1).to_json(orient="split"),
+                "figures": ["ZmFrZQ=="],
+            },
+        }
+        rendered = render_output(exec_result)
+        assert rendered["type"] == "mixed"
+        item_types = [item["type"] for item in rendered["content"]]
+        assert "text" in item_types
+        assert "table" in item_types
+        assert "chart" in item_types
+
+
+class TestSelfCorrectionLoop:
+    def _make_agent(self, monkeypatch):
+        monkeypatch.setattr(DataAnalystAgent, "_build_openai_client", lambda self: object())
+        schema = extract_schema(SAMPLE_DF)
+        return DataAnalystAgent(df=SAMPLE_DF, schema=schema)
+
+    def test_column_validation_intercepts_hallucinated_column(self, monkeypatch):
+        agent = self._make_agent(monkeypatch)
+        steps = iter(
+            [
+                ReActStep(
+                    thought="Use a revenue column.",
+                    action="execute_python_code",
+                    action_input="result = df['Revenu'].sum()",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Use the exact column name.",
+                    action="execute_python_code",
+                    action_input="result = df[['Revenue']].sum().to_frame().reset_index()",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="The calculation succeeded.",
+                    action="final_answer",
+                    action_input="",
+                    final_answer="Revenue total computed successfully.",
+                ),
+            ]
+        )
+        monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+        executed_code: list[str] = []
+
+        def fake_execute(code: str) -> dict:
+            executed_code.append(code)
+            return {
+                "stdout": "",
+                "stderr": "",
+                "outputs": {
+                    "result_type": "dataframe",
+                    "result": SAMPLE_DF[["Revenue"]].sum().to_frame().reset_index().to_json(orient="split"),
+                    "figures": [],
+                },
+            }
+
+        monkeypatch.setattr(agent.tools, "execute_python_code", fake_execute)
+
+        response = agent.run("What is total revenue?")
+
+        assert response["final_answer"] == "Revenue total computed successfully."
+        assert executed_code == ["result = df[['Revenue']].sum().to_frame().reset_index()"]
+        assert any(item["action"] == "column_validation" for item in response["trace"])
+
+    def test_retry_after_invalid_pandas_syntax(self, monkeypatch):
+        agent = self._make_agent(monkeypatch)
+        steps = iter(
+            [
+                ReActStep(
+                    thought="Try a groupby.",
+                    action="execute_python_code",
+                    action_input="result = df.groupby('Region')['Revenue'].mean(",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Fix the syntax.",
+                    action="execute_python_code",
+                    action_input="result = df.groupby('Region', as_index=False)['Revenue'].mean()",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Now answer.",
+                    action="final_answer",
+                    action_input="",
+                    final_answer="Average revenue by region computed.",
+                ),
+            ]
+        )
+        monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+        attempts = {"count": 0}
+
+        def fake_execute(code: str) -> dict:
+            attempts["count"] += 1
+            if attempts["count"] == 1:
+                return {
+                    "stdout": "",
+                    "stderr": "SyntaxError: '(' was never closed",
+                    "outputs": {"result_type": "none", "result": None, "figures": []},
+                }
+            return {
+                "stdout": "",
+                "stderr": "",
+                "outputs": {
+                    "result_type": "dataframe",
+                    "result": SAMPLE_DF.groupby("Region", as_index=False)["Revenue"].mean().to_json(orient="split"),
+                    "figures": [],
+                },
+            }
+
+        monkeypatch.setattr(agent.tools, "execute_python_code", fake_execute)
+
+        response = agent.run("Average revenue by region")
+
+        assert response["final_answer"] == "Average revenue by region computed."
+        assert attempts["count"] == 2
+        assert len(response["retry_events"]) == 1
+        assert "SyntaxError" in response["retry_events"][0]["error"]
+
+    def test_final_failure_after_three_attempts(self, monkeypatch):
+        status_updates = []
+        monkeypatch.setattr(DataAnalystAgent, "_build_openai_client", lambda self: object())
+        schema = extract_schema(SAMPLE_DF)
+        agent = DataAnalystAgent(
+            df=SAMPLE_DF,
+            schema=schema,
+            max_retries=3,
+            status_callback=lambda label, state: status_updates.append((label, state)),
+        )
+        steps = iter(
+            [
+                ReActStep(
+                    thought="Use math.",
+                    action="execute_python_code",
+                    action_input="result = math.sqrt(df['Revenue'].mean())",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Try again.",
+                    action="execute_python_code",
+                    action_input="result = math.sqrt(df['Revenue'].mean())",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Try once more.",
+                    action="execute_python_code",
+                    action_input="result = math.sqrt(df['Revenue'].mean())",
+                    final_answer="",
+                ),
+            ]
+        )
+        monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+        monkeypatch.setattr(
+            agent.tools,
+            "execute_python_code",
+            lambda code: {
+                "stdout": "",
+                "stderr": "NameError: name 'math' is not defined",
+                "outputs": {"result_type": "none", "result": None, "figures": []},
+            },
+        )
+
+        response = agent.run("Compute square root of average revenue")
+
+        assert response["final_answer"] == "Analysis failed after 3 attempts. Please rephrase your question."
+        assert len(response["retry_events"]) == 3
+        assert status_updates[-1][1] == "error"
+
+    def test_full_session_history_is_forwarded(self, monkeypatch):
+        captured_messages = []
+        monkeypatch.setattr(DataAnalystAgent, "_build_openai_client", lambda self: object())
+        schema = extract_schema(SAMPLE_DF)
+        history = [
+            {"role": "user", "content": f"question {index}"} if index % 2 == 0
+            else {"role": "assistant", "content": f"answer {index}"}
+            for index in range(10)
+        ]
+        agent = DataAnalystAgent(df=SAMPLE_DF, schema=schema, history=history)
+
+        def fake_call_llm(messages):
+            captured_messages.extend(messages)
+            return ReActStep(
+                thought="Enough context available.",
+                action="final_answer",
+                action_input="",
+                final_answer="Done.",
+            )
+
+        monkeypatch.setattr(agent, "_call_llm", fake_call_llm)
+
+        response = agent.run("final question")
+
+        assert response["final_answer"] == "Done."
+        forwarded_contents = [message["content"] for message in captured_messages if message["role"] != "system"]
+        for turn in history:
+            assert turn["content"] in forwarded_contents

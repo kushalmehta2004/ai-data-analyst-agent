@@ -6,13 +6,20 @@ Phase 1: File upload, schema preview, chat shell (no LLM yet).
 
 from __future__ import annotations
 
+from io import StringIO
+
+import pandas as pd
 import streamlit as st
 
+from agent.core import DataAnalystAgent
+from agent.memory import SessionMemory
+from executor.sandbox import SandboxExecutor
 from parser.file_parser import (
     extract_schema,
     get_excel_sheet_names,
     load_file,
 )
+from renderer.output import render_output
 
 # ---------------------------------------------------------------------------
 # Page config (must be first Streamlit call)
@@ -68,6 +75,65 @@ if "schema" not in st.session_state:
 if "uploaded_filename" not in st.session_state:
     st.session_state.uploaded_filename = None
 
+if "memory" not in st.session_state:
+    st.session_state.memory = SessionMemory(max_messages=20)
+
+if "prior_results" not in st.session_state:
+    st.session_state.prior_results = []
+
+if "sandbox_executor" not in st.session_state:
+    st.session_state.sandbox_executor = None
+
+
+def render_chat_payload(message: dict, key_prefix: str = "") -> None:
+    """Render a stored assistant payload in the chat transcript."""
+    message_type = message.get("type")
+    if message_type == "table":
+        st.markdown(message["content"], unsafe_allow_html=True)
+        dataframe_json = message.get("dataframe_json")
+        if dataframe_json:
+            try:
+                csv_data = pd.read_json(StringIO(dataframe_json), orient="split").to_csv(index=False)
+                st.download_button(
+                    "⬇ Download CSV",
+                    data=csv_data,
+                    file_name="results.csv",
+                    mime="text/csv",
+                    key=f"{key_prefix}_table_export",
+                )
+            except Exception:
+                pass
+    elif message_type == "chart":
+        st.image(message["content"])
+        st.download_button(
+            "⬇ Download PNG",
+            data=message["content"],
+            file_name="chart.png",
+            mime="image/png",
+            key=f"{key_prefix}_chart_export",
+        )
+    elif message_type == "text":
+        if message.get("format") == "stdout":
+            st.code(message["content"], language="text")
+        else:
+            st.markdown(message["content"])
+    elif message_type == "error":
+        st.error(message["content"])
+    elif message_type == "trace":
+        with st.expander("Agent Thinking", expanded=False):
+            for item in message["content"]:
+                header = f"**Step {item['step']}**  \nThought: {item['thought']}  \nAction: `{item['action']}`"
+                if item.get("attempt"):
+                    header += f"  \nAttempt: {item['attempt']}"
+                st.markdown(header)
+                if item.get("action_input"):
+                    st.code(item["action_input"], language="python")
+                if item.get("observation"):
+                    st.markdown("**Observation**")
+                    st.code(item["observation"], language="text")
+    else:
+        st.markdown(message["content"])
+
 
 # ---------------------------------------------------------------------------
 # Sidebar
@@ -82,9 +148,10 @@ with st.sidebar:
     st.subheader("⚙️ Model Settings")
     llm_provider = st.selectbox(
         "LLM Provider",
-        options=["OpenAI GPT-4o", "Anthropic Claude Sonnet"],
+        options=["openai", "anthropic"],
         index=0,
-        help="Configure your API key in .env",
+        format_func=lambda p: "OpenAI GPT-4o" if p == "openai" else "Anthropic Claude Sonnet",
+        help="Configure provider keys in .env",
     )
     st.session_state["llm_provider"] = llm_provider
 
@@ -125,6 +192,12 @@ with st.sidebar:
                     st.session_state["_last_file_key"] = file_key
                     # Reset conversation on new file
                     st.session_state.messages = []
+                    st.session_state.memory.clear()
+                    st.session_state.prior_results = []
+
+                    sandbox_executor = SandboxExecutor()
+                    sandbox_executor.set_dataframe(df)
+                    st.session_state.sandbox_executor = sandbox_executor
                     st.success(f"✅ Loaded **{uploaded_file.name}**")
                 except ValueError as e:
                     st.error(str(e))
@@ -137,6 +210,13 @@ with st.sidebar:
         st.subheader("📊 Dataset Info")
         st.metric("Rows", f"{schema['row_count']:,}")
         st.metric("Columns", schema["col_count"])
+        sandbox_executor = st.session_state.get("sandbox_executor")
+        if sandbox_executor is not None and sandbox_executor.is_available:
+            st.caption("Execution mode: E2B sandbox")
+        else:
+            st.caption("Execution mode: Local subprocess fallback")
+            if sandbox_executor is not None and sandbox_executor.last_error:
+                st.caption(f"Reason: {sandbox_executor.last_error}")
         if schema["missing_info"]:
             st.caption(f"⚠️ {len(schema['missing_info'])} column(s) have missing values")
 
@@ -144,6 +224,8 @@ with st.sidebar:
 
     if st.button("🗑️ Clear conversation", use_container_width=True):
         st.session_state.messages = []
+        st.session_state.memory.clear()
+        st.session_state.prior_results = []
         st.rerun()
 
 
@@ -236,14 +318,9 @@ else:
     # ------------------------------------------------------------------
     with tab_chat:
         # Render existing conversation messages
-        for msg in st.session_state.messages:
+        for idx, msg in enumerate(st.session_state.messages):
             with st.chat_message(msg["role"]):
-                if msg.get("type") == "dataframe":
-                    st.markdown(msg["content"], unsafe_allow_html=True)
-                elif msg.get("type") == "image":
-                    st.image(msg["content"])
-                else:
-                    st.markdown(msg["content"])
+                render_chat_payload(msg, key_prefix=f"history_{idx}")
 
         # Chat input
         user_input = st.chat_input(
@@ -253,21 +330,69 @@ else:
         if user_input:
             # Store and display user message
             st.session_state.messages.append({"role": "user", "content": user_input})
+            st.session_state.memory.add_turn("user", user_input)
             with st.chat_message("user"):
                 st.markdown(user_input)
 
-            # ── Phase 1 placeholder — replaced in Phase 2 with ReAct agent ──
             with st.chat_message("assistant"):
-                with st.spinner("Thinking…"):
-                    placeholder_msg = (
-                        "🔧 **Agent not yet connected.** "
-                        "The LLM + ReAct loop will be wired up in Phase 2. "
-                        f"\n\nYou asked: *\"{user_input}\"*"
-                        f"\n\nDataset loaded: **{st.session_state.uploaded_filename}** "
-                        f"({schema['row_count']:,} rows × {schema['col_count']} columns)"
-                    )
-                    st.markdown(placeholder_msg)
+                status_box = st.status("Running analysis...", expanded=True)
 
-            st.session_state.messages.append(
-                {"role": "assistant", "content": placeholder_msg}
-            )
+                def update_status(label: str, state: str = "running") -> None:
+                    status_box.update(label=label, state=state, expanded=True)
+
+                with st.spinner("Thinking…"):
+                    try:
+                        history_for_agent = st.session_state.memory.get_history()
+                        agent = DataAnalystAgent(
+                            df=df,
+                            schema=schema,
+                            provider=st.session_state.get("llm_provider", "openai"),
+                            history=history_for_agent,
+                            status_callback=update_status,
+                            sandbox_executor=st.session_state.sandbox_executor,
+                            prior_results=st.session_state.prior_results,
+                        )
+                        response = agent.run(user_input)
+                    except Exception as e:
+                        update_status(f"Agent error: {e}", "error")
+                        response = {
+                            "final_answer": f"Agent error: {e}",
+                            "trace": [],
+                            "execution": None,
+                            "retry_events": [],
+                        }
+
+                final_answer = response.get("final_answer", "No response generated.")
+                st.markdown(final_answer)
+                st.session_state.messages.append({"role": "assistant", "content": final_answer})
+                st.session_state.memory.add_turn("assistant", final_answer)
+
+                if final_answer.startswith("Analysis failed after"):
+                    update_status(final_answer, "error")
+                else:
+                    update_status("Analysis complete", "complete")
+
+                trace = response.get("trace", [])
+                if trace:
+                    render_chat_payload(
+                        {"role": "assistant", "type": "trace", "content": trace},
+                        key_prefix=f"trace_{len(st.session_state.messages)}",
+                    )
+                    st.session_state.messages.append(
+                        {"role": "assistant", "type": "trace", "content": trace}
+                    )
+
+                execution = response.get("execution")
+                if execution:
+                    rendered = render_output(execution)
+                    for item_idx, item in enumerate(rendered["content"]):
+                        payload = {"role": "assistant", **item}
+                        render_chat_payload(
+                            payload,
+                            key_prefix=f"new_{len(st.session_state.messages)}_{item_idx}",
+                        )
+                        st.session_state.messages.append(payload)
+                        if item.get("type") == "table" and item.get("dataframe_json"):
+                            st.session_state.prior_results.append(item["dataframe_json"])
+                            if len(st.session_state.prior_results) > 5:
+                                st.session_state.prior_results = st.session_state.prior_results[-5:]
