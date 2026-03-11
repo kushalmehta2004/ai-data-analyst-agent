@@ -556,3 +556,164 @@ class TestSelfCorrectionLoop:
         forwarded_contents = [message["content"] for message in captured_messages if message["role"] != "system"]
         for turn in history:
             assert turn["content"] in forwarded_contents
+
+
+class TestPhase6DatasetIntegrations:
+    def _make_agent(self, df: pd.DataFrame, monkeypatch) -> DataAnalystAgent:
+        monkeypatch.setattr(DataAnalystAgent, "_build_openai_client", lambda self: object())
+        schema = extract_schema(df)
+        return DataAnalystAgent(df=df, schema=schema)
+
+    @staticmethod
+    def _assert_non_empty_execution(response: dict):
+        assert response["final_answer"].strip() != ""
+        execution = response.get("execution")
+        assert execution is not None
+        outputs = execution.get("outputs", {})
+        has_result = outputs.get("result") not in (None, "")
+        has_figures = len(outputs.get("figures", [])) > 0
+        has_stdout = execution.get("stdout", "").strip() != ""
+        assert has_result or has_figures or has_stdout
+
+    def test_titanic_csv_three_questions_return_outputs(self, monkeypatch):
+        titanic_df = pd.DataFrame(
+            {
+                "PassengerId": [1, 2, 3, 4, 5, 6],
+                "Pclass": [3, 1, 3, 1, 2, 3],
+                "Sex": ["male", "female", "female", "female", "male", "male"],
+                "Age": [22, 38, 26, 35, 28, 2],
+                "Survived": [0, 1, 1, 1, 0, 1],
+                "Fare": [7.25, 71.28, 7.93, 53.1, 13.0, 21.07],
+            }
+        )
+        loaded_df = load_file(make_csv_file(titanic_df, name="titanic.csv"))
+
+        scenarios = [
+            (
+                "What is the survival rate by passenger class?",
+                "result = df.groupby('Pclass', as_index=False)['Survived'].mean()",
+                "Survival rate by passenger class computed.",
+            ),
+            (
+                "What is the average fare by class and sex?",
+                "result = df.groupby(['Pclass', 'Sex'], as_index=False)['Fare'].mean()",
+                "Average fare by class and sex computed.",
+            ),
+            (
+                "How many passengers are in each class?",
+                "result = df.groupby('Pclass', as_index=False)['PassengerId'].count()",
+                "Passenger counts by class computed.",
+            ),
+        ]
+
+        for query, code, final_answer in scenarios:
+            agent = self._make_agent(loaded_df, monkeypatch)
+            steps = iter(
+                [
+                    ReActStep(
+                        thought="Generate code for this analysis.",
+                        action="execute_python_code",
+                        action_input=code,
+                        final_answer="",
+                    ),
+                    ReActStep(
+                        thought="Use tool observation to answer.",
+                        action="final_answer",
+                        action_input="",
+                        final_answer=final_answer,
+                    ),
+                ]
+            )
+            monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+            response = agent.run(query)
+
+            assert response["final_answer"] == final_answer
+            self._assert_non_empty_execution(response)
+
+    def test_superstore_chart_question_returns_png(self, monkeypatch):
+        superstore_df = pd.DataFrame(
+            {
+                "Region": ["East", "West", "East", "Central", "West"],
+                "Category": ["Office Supplies", "Furniture", "Technology", "Furniture", "Technology"],
+                "Sales": [200.0, 450.0, 800.0, 300.0, 950.0],
+                "OrderDate": [
+                    "2024-01-01",
+                    "2024-01-02",
+                    "2024-01-03",
+                    "2024-01-04",
+                    "2024-01-05",
+                ],
+            }
+        )
+        loaded_df = load_file(make_csv_file(superstore_df, name="superstore.csv"))
+        agent = self._make_agent(loaded_df, monkeypatch)
+
+        steps = iter(
+            [
+                ReActStep(
+                    thought="Create a chart of sales by region.",
+                    action="execute_python_code",
+                    action_input=(
+                        "import matplotlib.pyplot as plt\n"
+                        "summary = df.groupby('Region', as_index=False)['Sales'].sum()\n"
+                        "plt.figure(figsize=(6, 4))\n"
+                        "plt.bar(summary['Region'], summary['Sales'])\n"
+                        "plt.title('Sales by Region')\n"
+                        "result = summary"
+                    ),
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Summarize chart output.",
+                    action="final_answer",
+                    action_input="",
+                    final_answer="Rendered a sales-by-region bar chart.",
+                ),
+            ]
+        )
+        monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+
+        response = agent.run("Show me a bar chart of sales by region")
+
+        assert response["final_answer"] == "Rendered a sales-by-region bar chart."
+        execution = response["execution"]
+        assert execution is not None
+        assert execution["stderr"] == ""
+        assert len(execution["outputs"].get("figures", [])) >= 1
+
+    def test_covid_aggregation_question_returns_dataframe(self, monkeypatch):
+        covid_df = pd.DataFrame(
+            {
+                "date": ["2024-01-01", "2024-01-02", "2024-01-01", "2024-01-02"],
+                "location": ["India", "India", "Brazil", "Brazil"],
+                "new_cases": [120, 140, 90, 110],
+            }
+        )
+        loaded_df = load_file(make_csv_file(covid_df, name="covid.csv"))
+        agent = self._make_agent(loaded_df, monkeypatch)
+
+        steps = iter(
+            [
+                ReActStep(
+                    thought="Aggregate daily cases by location.",
+                    action="execute_python_code",
+                    action_input="result = df.groupby('location', as_index=False)['new_cases'].sum()",
+                    final_answer="",
+                ),
+                ReActStep(
+                    thought="Return final summary.",
+                    action="final_answer",
+                    action_input="",
+                    final_answer="Aggregated total new cases by location.",
+                ),
+            ]
+        )
+        monkeypatch.setattr(agent, "_call_llm", lambda messages: next(steps))
+
+        response = agent.run("Total COVID new cases by country")
+
+        assert response["final_answer"] == "Aggregated total new cases by location."
+        execution = response["execution"]
+        assert execution is not None
+        assert execution["stderr"] == ""
+        assert execution["outputs"]["result_type"] == "dataframe"

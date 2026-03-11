@@ -17,6 +17,14 @@ MAX_FILE_SIZE_MB = 50
 MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024
 
 
+def _to_markdown_safe(df: pd.DataFrame, *, index: bool = True) -> str:
+    """Render markdown when tabulate is installed, otherwise plain table text."""
+    try:
+        return df.to_markdown(index=index)
+    except Exception:
+        return df.to_string(index=index)
+
+
 # ---------------------------------------------------------------------------
 # File loading
 # ---------------------------------------------------------------------------
@@ -136,11 +144,11 @@ def extract_schema(df: pd.DataFrame) -> dict:
     """
     col_dtypes = {col: str(df[col].dtype) for col in df.columns}
 
-    sample_md = df.head(5).to_markdown(index=False)
+    sample_md = _to_markdown_safe(df.head(5), index=False)
 
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     numeric_stats_md = (
-        df[numeric_cols].describe().round(2).to_markdown()
+        _to_markdown_safe(df[numeric_cols].describe().round(2))
         if numeric_cols
         else "No numeric columns."
     )

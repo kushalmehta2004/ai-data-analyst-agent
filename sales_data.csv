@@ -1,0 +1,501 @@
+OrderID,OrderDate,Region,Category,SubCategory,ProductName,CustomerID,CustomerSegment,Quantity,UnitPrice,DiscountPct,Revenue,Cost,Profit,PaymentMethod,IsReturned
+ORD-000001,2024-11-15,East,Furniture,,Wooden Study Desk,CUST-0167,Corporate,9,11807.19,0.14,91387.65,50279.6,41108.05,Card,False
+ORD-000002,2024-11-21,South,Office Supplies,Staplers,Swingline 747,CUST-0086,Home Office,9,1040.22,0.12,8238.54,5291.99,2946.55,Card,False
+ORD-000003,2024-08-01,East,Grocery,Breakfast Cereals,Chocos 375g,CUST-0177,Home Office,5,646.33,0.04,3102.38,1930.76,1171.62,COD,False
+ORD-000004,2025-12-26,North,Furniture,Sofas,L-Shape Sectional,CUST-0017,Home Office,1,2869.95,0.14,2468.16,1530.43,937.73,Card,False
+ORD-000005,2025-09-10,North,Furniture,Wardrobes,3-Door Sliding Wardrobe,CUST-0098,,17,40052.39,0.06,640037.19,365113.05,274924.14,COD,False
+ORD-000006,2024-08-10,North,Clothing,Formal Shirts,Checked Business Shirt,CUST-0198,,2,830.72,0.26,1229.47,745.23,484.24,UPI,False
+ORD-000007,2024-08-12,West,Office Supplies,Folders,Expanding File Folder,CUST-0198,Consumer,13,974.8,0.07,11785.33,8446.13,3339.2,,False
+ORD-000008,2024-09-04,South,Electronics,Tablets,Lenovo Tab M10,CUST-0098,Consumer,9,51779.01,0.02,456690.87,291098.56,165592.31,COD,False
+ORD-000009,2024-03-28,West,Office Supplies,Printer Paper,A4 80 GSM Ream,CUST-0065,Consumer,4,1275.43,0.19,4132.39,2790.27,1342.12,UPI,True
+ORD-000010,2024-10-26,North,Electronics,Laptops,ThinkPad E14,CUST-0074,Home Office,5,62910.95,0.21,248498.25,164769.27,83728.98,NetBanking,False
+ORD-000011,2025-04-01,South,Electronics,Smart Watches,Apple Watch SE,CUST-0085,Corporate,11,25034.7,0.31,190013.37,154437.45,35575.92,COD,False
+ORD-000012,2024-10-08,North,Office Supplies,Notebooks,Leuchtturm1917 A5,CUST-0005,Consumer,19,69.46,0.2,1055.79,867.43,188.36,,False
+ORD-000013,2025-04-26,West,Furniture,Bookshelves,Cube Storage Unit,CUST-0002,Consumer,3,36725.3,0.12,96954.79,67663.5,29291.29,Card,False
+ORD-000014,2025-04-07,West,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0022,Corporate,12,817.42,0.28,7062.51,4583.9,2478.61,NetBanking,False
+ORD-000015,2025-06-13,West,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0112,Consumer,19,42133.65,0.19,648436.87,377416.33,271020.54,Card,False
+ORD-000016,2025-08-15,North,Office Supplies,Pens & Pencils,Cello Finegrip,CUST-0057,Consumer,19,1651.71,0.03,30441.02,25449.33,4991.69,Card,False
+ORD-000017,2025-10-20,South,Clothing,Jackets,Denim Trucker Jacket,CUST-0066,Home Office,13,6793.45,0.2,70651.88,40135.08,30516.8,Card,False
+ORD-000018,2025-10-19,South,Electronics,Tablets,Lenovo Tab M10,CUST-0074,Consumer,7,45203.24,0.32,215167.42,137555.47,77611.95,Card,False
+ORD-000019,2025-09-20,North,Clothing,Sportswear,Gym Shorts Pro,CUST-0098,Consumer,15,2868.27,0.14,37000.68,23658.97,13341.71,NetBanking,False
+ORD-000020,2024-01-05,South,Electronics,Laptops,MacBook Air M2,CUST-0144,Corporate,7,71865.56,0.1,452753.03,292532.96,160220.07,Card,False
+ORD-000021,2024-04-07,North,Grocery,Dairy Products,Epigamia Greek Yogurt,CUST-0112,Home Office,8,693.4,0.05,5269.84,3158.14,2111.7,UPI,False
+ORD-000022,2025-06-21,South,Electronics,Tablets,Fire HD 10,CUST-0179,Corporate,5,18959.47,0.05,90057.48,70690.48,19367.0,UPI,False
+ORD-000023,2025-07-02,East,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0125,Consumer,14,119986.25,0.15,1427836.38,837782.08,590054.3,UPI,False
+ORD-000024,2025-03-19,East,Electronics,Cameras,Fujifilm X-T30,CUST-0167,Consumer,4,79782.71,0.21,252113.36,186682.88,65430.48,Card,False
+ORD-000025,2025-06-29,West,Grocery,Breakfast Cereals,Kellogg's Corn Flakes 875g,CUST-0086,Consumer,10,715.48,0.03,6940.16,4074.94,2865.22,NetBanking,False
+ORD-000026,2025-06-28,East,Office Supplies,Pens & Pencils,Staedtler HB Pencils,CUST-0076,Corporate,20,197.61,0.33,2647.97,1512.42,1135.55,Card,False
+ORD-000027,2024-06-17,East,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0088,Corporate,15,806.26,0.26,8949.49,7363.9,1585.59,NetBanking,False
+ORD-000028,2024-01-04,East,Electronics,Smartphones,Nord CE 3,CUST-0168,Consumer,18,72907.78,0.21,1036748.63,629346.47,407402.16,COD,False
+ORD-000029,2024-05-16,North,Clothing,Dresses,Bodycon Evening Dress,CUST-0038,Home Office,20,7243.56,0.29,102858.55,81913.98,20944.57,UPI,False
+ORD-000030,2025-07-20,East,Electronics,Cameras,Sony ZV-E10,CUST-0188,Consumer,13,20702.13,0.03,261053.86,186233.02,74820.84,UPI,True
+ORD-000031,2024-07-20,East,Grocery,Beverages,Bisleri Water 5L,CUST-0059,Consumer,8,128.45,0.17,852.91,489.02,363.89,UPI,False
+ORD-000032,2025-09-30,West,Electronics,Cameras,Fujifilm X-T30,CUST-0138,Consumer,9,79329.49,0.22,556893.02,465915.89,90977.13,UPI,False
+ORD-000033,2025-11-01,East,Electronics,Headphones,Sony WH-1000XM5,CUST-0099,Consumer,16,36878.23,0.29,418936.69,261453.51,157483.18,COD,False
+ORD-000034,2025-10-17,East,Electronics,Cameras,GoPro Hero 12,CUST-0192,Corporate,19,50133.2,0.27,695347.48,561766.78,133580.7,COD,False
+ORD-000035,2024-07-25,South,Office Supplies,Printer Paper,Glossy Photo Paper,CUST-0063,Corporate,16,1937.73,0.1,27903.31,16759.93,11143.38,Card,False
+ORD-000036,2025-05-20,West,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0049,Consumer,7,179.8,0.33,843.26,679.82,163.44,UPI,False
+ORD-000037,2025-10-27,West,Electronics,Headphones,JBL Tune 760,CUST-0192,Corporate,14,59403.67,0.04,798385.32,442280.43,356104.89,COD,False
+ORD-000038,2024-04-24,West,Clothing,Dresses,Midi A-Line Dress,CUST-0032,Consumer,14,869.69,0.31,8401.21,5910.54,2490.67,COD,False
+ORD-000039,2024-09-26,West,Office Supplies,Printer Paper,Glossy Photo Paper,CUST-0135,Corporate,4,782.16,0.34,2064.9,1612.34,452.56,UPI,True
+ORD-000040,2024-06-27,West,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0021,Home Office,15,1617.44,0.06,22805.9,18938.9,3867.0,UPI,True
+ORD-000041,2024-12-27,West,Office Supplies,Notebooks,Spiral Hardcover,CUST-0020,Consumer,3,895.27,0.25,2014.36,1657.34,357.02,Card,False
+ORD-000042,2025-03-02,North,Furniture,,Featherlite Executive,CUST-0154,Corporate,5,49864.75,0.01,246830.51,196449.31,50381.2,COD,False
+ORD-000043,2024-03-04,East,Office Supplies,,Swingline 747,CUST-0127,Consumer,1,1140.17,0.14,980.55,800.58,179.97,Card,False
+ORD-000044,2024-02-22,West,Electronics,Smartphones,Galaxy A54,CUST-0068,Consumer,3,30941.11,0.18,76115.13,46412.41,29702.72,UPI,False
+ORD-000045,2025-06-29,East,Electronics,Headphones,Bose QC45,CUST-0110,Consumer,15,22149.69,0.2,265796.28,168848.49,96947.79,,False
+ORD-000046,2024-05-23,East,Grocery,Beverages,Tropicana Orange 1L,CUST-0116,Corporate,8,545.27,0.33,2922.65,1860.82,1061.83,Card,False
+ORD-000047,2025-04-27,North,Grocery,Spices,Catch Black Pepper 50g,CUST-0143,Corporate,4,577.62,0.24,1755.96,1164.41,591.55,UPI,False
+ORD-000048,2024-08-25,West,Furniture,Desks,Wooden Study Desk,CUST-0120,Consumer,2,5298.26,0.17,8795.11,5875.1,2920.01,COD,False
+ORD-000049,2025-02-22,South,Furniture,Sofas,Recliner Sofa,CUST-0079,Home Office,10,19739.56,0.28,142124.83,101387.11,40737.72,Card,False
+ORD-000050,2025-01-23,North,Clothing,,Slim Fit Stretch Jeans,CUST-0116,Corporate,4,3874.1,0.33,10382.59,6208.41,4174.18,UPI,False
+ORD-000051,2024-05-10,South,Furniture,Desks,Compact Laptop Desk,CUST-0092,Home Office,3,36691.41,0.01,108973.49,82533.69,26439.8,Card,False
+ORD-000052,2024-10-01,East,Electronics,Headphones,Sennheiser HD450,CUST-0014,Corporate,2,60135.47,0.34,79378.82,47648.72,31730.1,Card,True
+ORD-000053,2024-03-04,East,Electronics,Smart Watches,Garmin Venu 2,CUST-0155,Corporate,17,64662.61,0.03,1066286.44,685720.86,380565.58,UPI,False
+ORD-000054,2024-10-29,North,Clothing,Jeans,Skinny Ripped Jeans,CUST-0125,Consumer,20,363.41,0.29,5160.42,3617.47,1542.95,UPI,False
+ORD-000055,2024-03-11,North,Clothing,Jackets,Quilted Puffer Jacket,CUST-0168,Consumer,13,1975.26,0.1,23110.54,18232.65,4877.89,Card,False
+ORD-000056,2025-06-20,South,Electronics,Tablets,iPad 10th Gen,CUST-0058,Home Office,5,60566.53,0.05,287691.02,222051.66,65639.36,Card,False
+ORD-000057,2025-08-02,West,Electronics,Laptops,Asus VivoBook,CUST-0028,Consumer,9,45107.08,0.15,345069.16,256614.24,88454.92,Card,False
+ORD-000058,2025-12-27,South,Electronics,Smart Watches,Noise ColorFit,CUST-0026,Home Office,6,3462.27,0.23,15995.69,9545.14,6450.55,Card,False
+ORD-000059,2024-12-10,North,Clothing,Formal Shirts,Striped Slim Fit Shirt,CUST-0113,Corporate,5,6494.41,0.13,28250.68,20174.19,8076.49,COD,False
+ORD-000060,2025-09-24,South,Electronics,Headphones,Boat Rockerz 550,CUST-0191,Consumer,10,70234.43,0.02,688297.41,396620.34,291677.07,COD,False
+ORD-000061,2025-06-05,North,Electronics,Tablets,Galaxy Tab A8,CUST-0066,Consumer,8,50712.47,0.21,320502.81,212560.33,107942.48,Card,False
+ORD-000062,2025-01-06,South,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0153,Consumer,7,810.83,0.32,3859.55,2601.55,1258.0,UPI,False
+ORD-000063,2025-10-01,North,Electronics,Laptops,ThinkPad E14,CUST-0131,Home Office,7,69686.81,0.13,424392.67,238484.67,185908.0,COD,False
+ORD-000064,2025-07-06,North,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0200,Consumer,6,4794.18,0.08,26463.87,16730.36,9733.51,Card,False
+ORD-000065,2025-04-15,North,Electronics,Smartphones,Nord CE 3,CUST-0044,Consumer,20,71030.52,0.15,1207518.84,1010324.78,197194.06,NetBanking,False
+ORD-000066,2025-08-15,West,Electronics,Tablets,Fire HD 10,CUST-0097,Consumer,3,68401.99,0.02,201101.85,168139.2,32962.65,COD,False
+ORD-000067,2024-08-13,South,Electronics,Laptops,MacBook Air M2,CUST-0042,Consumer,19,72861.18,0.29,982897.32,644483.92,338413.4,Card,True
+ORD-000068,2025-05-24,South,Clothing,Sportswear,Track Suit Set,CUST-0006,Consumer,15,4288.18,0.29,45669.12,25708.52,19960.6,Card,True
+ORD-000069,2024-07-24,South,Grocery,,Chocos 375g,CUST-0167,Consumer,4,236.28,0.21,746.64,450.77,295.87,COD,False
+ORD-000070,2025-10-11,North,Grocery,Beverages,Coca-Cola 2L,CUST-0180,Home Office,12,1016.6,0.12,10735.3,7167.59,3567.71,UPI,False
+ORD-000071,2024-06-28,South,Furniture,Sofas,L-Shape Sectional,CUST-0023,Consumer,6,31782.74,0.28,137301.44,114555.25,22746.19,Card,False
+ORD-000072,2024-04-15,South,Clothing,,Maxi Boho Dress,CUST-0089,Consumer,19,6015.09,0.19,92572.24,54836.07,37736.17,Card,False
+ORD-000073,2025-05-28,North,Electronics,Smart Watches,Fitbit Versa 4,CUST-0123,Consumer,4,17779.65,0.29,50494.21,39337.75,11156.46,UPI,False
+ORD-000074,2025-05-07,East,Furniture,,Compact Laptop Desk,CUST-0178,Consumer,15,11358.81,0.22,132898.08,77427.05,55471.03,NetBanking,False
+ORD-000075,2025-09-26,North,Grocery,Spices,Tata Salt 1kg,CUST-0171,Home Office,9,1338.9,0.27,8796.57,7427.62,1368.95,NetBanking,False
+ORD-000076,2025-07-26,South,Electronics,Cameras,Sony ZV-E10,CUST-0147,Corporate,5,68248.07,0.21,269579.88,179131.77,90448.11,COD,False
+ORD-000077,2024-11-02,North,Electronics,Smart Watches,Fitbit Versa 4,CUST-0197,Consumer,13,82015.88,0.14,916937.54,717568.14,199369.4,Card,False
+ORD-000078,2024-12-09,East,Electronics,Cameras,Nikon Z30,CUST-0051,Corporate,18,69008.23,0.34,819817.77,535158.45,284659.32,UPI,False
+ORD-000079,2025-11-14,North,Electronics,Smartphones,Redmi Note 12,CUST-0011,Consumer,5,54952.51,0.19,222557.67,164314.48,58243.19,UPI,False
+ORD-000080,2025-01-10,South,Electronics,Smart Watches,Noise ColorFit,CUST-0012,Consumer,16,59909.55,0.21,757256.71,460112.83,297143.88,UPI,False
+ORD-000081,2025-02-27,East,Office Supplies,Markers,Stabilo Boss Highlighters,CUST-0074,Home Office,19,1783.8,0.08,31180.82,18515.37,12665.45,,False
+ORD-000082,2025-06-01,West,Furniture,Sofas,L-Shape Sectional,CUST-0008,Corporate,14,29782.72,0.22,325227.3,270400.24,54827.06,COD,True
+ORD-000083,2024-02-08,South,Grocery,Spices,Everest Turmeric 200g,CUST-0152,,16,959.62,0.2,12283.14,10137.2,2145.94,COD,True
+ORD-000084,2025-01-31,East,Clothing,Dresses,Floral Wrap Dress,CUST-0041,Consumer,15,1504.03,0.06,21206.82,17309.87,3896.95,UPI,False
+ORD-000085,2024-06-10,East,Furniture,Office Chairs,Featherlite Executive,CUST-0164,Corporate,4,24748.22,0.02,97013.02,71559.72,25453.3,UPI,False
+ORD-000086,2024-10-08,West,Furniture,Sofas,Futon Convertible,CUST-0085,Consumer,7,36387.06,0.21,201220.44,159463.27,41757.17,Card,False
+ORD-000087,2025-11-13,North,Furniture,Desks,L-Shaped Office Desk,CUST-0072,Consumer,16,15005.25,0.27,175261.32,100023.58,75237.74,UPI,True
+ORD-000088,2024-02-18,North,Office Supplies,Markers,Artline Whiteboard Markers,CUST-0055,Home Office,8,444.4,0.18,2915.26,1896.19,1019.07,NetBanking,False
+ORD-000089,2024-12-17,South,Furniture,Office Chairs,ErgoMax Pro,CUST-0137,Consumer,17,17063.69,0.08,266876.11,171897.82,94978.29,UPI,False
+ORD-000090,2025-04-22,West,Office Supplies,Staplers,MAX HD-10DF,CUST-0047,Home Office,16,520.93,0.23,6417.86,4753.67,1664.19,COD,False
+ORD-000091,2025-08-12,North,Furniture,Office Chairs,ErgoMax Pro,CUST-0143,Corporate,10,12315.81,0.03,119463.36,78462.02,41001.34,UPI,False
+ORD-000092,2024-05-27,West,Office Supplies,Pens & Pencils,Parker Jotter,CUST-0176,Consumer,10,878.46,0.15,7466.91,4439.47,3027.44,UPI,False
+ORD-000093,2024-08-15,North,Office Supplies,Printer Paper,Legal Size Bond Paper,CUST-0104,,2,1820.29,0.06,3422.15,2494.54,927.61,NetBanking,False
+ORD-000094,2024-01-03,East,Furniture,Desks,Wooden Study Desk,CUST-0042,Corporate,9,26338.86,0.06,222826.76,176994.68,45832.08,Card,False
+ORD-000095,2024-05-06,North,Grocery,Dairy Products,Britannia Cheese Slices,CUST-0060,,17,306.24,0.07,4841.65,3217.94,1623.71,UPI,False
+ORD-000096,2024-03-19,West,Clothing,Formal Shirts,Mandarin Collar Shirt,CUST-0198,Home Office,11,891.76,0.14,8436.05,4974.58,3461.47,Card,False
+ORD-000097,2025-09-09,East,Electronics,Cameras,Fujifilm X-T30,CUST-0012,,10,63565.58,0.02,622942.68,379376.12,243566.56,UPI,False
+ORD-000098,2025-09-27,East,Grocery,Snacks,Lays Classic Chips,CUST-0130,Consumer,17,592.71,0.14,8665.42,5383.35,3282.07,NetBanking,False
+ORD-000099,2025-02-16,East,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0007,Corporate,4,1652.57,0.18,5420.43,3468.91,1951.52,UPI,False
+ORD-000100,2024-02-29,West,Grocery,Cooking Oils,Dhara Mustard Oil 2L,CUST-0080,Home Office,16,999.48,0.17,13273.09,9859.76,3413.33,NetBanking,False
+ORD-000101,2025-08-10,South,Clothing,Formal Shirts,White Oxford Shirt,CUST-0131,Consumer,20,6430.86,0.13,111896.96,81716.52,30180.44,UPI,False
+ORD-000102,2024-11-29,South,Furniture,Bookshelves,Industrial Bookshelf,CUST-0109,Corporate,15,15053.41,0.29,160318.82,121653.76,38665.06,Card,False
+ORD-000103,2024-12-07,South,Electronics,Laptops,MacBook Air M2,CUST-0003,Consumer,5,63235.23,0.05,300367.34,197867.16,102500.18,NetBanking,False
+ORD-000104,2024-05-24,West,Furniture,Bookshelves,Floating Shelf Set,CUST-0027,Corporate,6,14674.98,0.18,72200.9,57558.51,14642.39,Card,False
+ORD-000105,2024-10-20,East,Office Supplies,Markers,Artline Whiteboard Markers,CUST-0114,Corporate,17,1881.18,0.02,31340.46,19156.11,12184.35,Card,False
+ORD-000106,2024-10-10,South,Clothing,,Casual Shirt Dress,CUST-0107,Consumer,1,5199.72,0.02,5095.73,3519.68,1576.05,UPI,False
+ORD-000107,2024-12-09,West,Furniture,Desks,Corner Workstation,CUST-0040,Consumer,19,17576.57,0.2,267163.86,211134.69,56029.17,Card,False
+ORD-000108,2024-10-16,South,Electronics,Cameras,Fujifilm X-T30,CUST-0161,Corporate,4,26447.53,0.2,84632.1,51121.82,33510.28,,False
+ORD-000109,2025-10-12,North,Grocery,Beverages,Red Bull 250ml 4pk,CUST-0129,Consumer,17,310.66,0.31,3644.04,2124.33,1519.71,UPI,False
+ORD-000110,2025-09-18,South,Grocery,Cooking Oils,Borges Canola Oil,CUST-0008,Corporate,9,1051.12,0.2,7568.06,6168.76,1399.3,UPI,False
+ORD-000111,2025-12-15,South,Office Supplies,Markers,Crayola Washable Markers,CUST-0101,Consumer,2,476.5,0.34,628.98,410.65,218.33,UPI,False
+ORD-000112,2025-12-17,East,Electronics,Smartphones,Nord CE 3,CUST-0160,Home Office,8,54791.38,0.02,429564.42,324390.31,105174.11,COD,False
+ORD-000113,2025-07-25,West,Furniture,Office Chairs,Durian Slick,CUST-0124,Corporate,15,14702.48,0.03,213921.08,119283.37,94637.71,UPI,False
+ORD-000114,2024-12-24,East,Electronics,Cameras,Nikon Z30,CUST-0176,Home Office,7,60591.3,0.02,415656.32,314657.68,100998.64,COD,False
+ORD-000115,2024-11-16,East,Grocery,Cooking Oils,Dhara Mustard Oil 2L,CUST-0107,Consumer,6,1227.96,0.06,6925.69,4465.9,2459.79,Card,False
+ORD-000116,2025-09-09,East,Electronics,Tablets,OnePlus Pad,CUST-0101,Corporate,1,70688.2,0.19,57257.44,32449.07,24808.37,UPI,False
+ORD-000117,2025-11-06,East,Office Supplies,Printer Paper,Legal Size Bond Paper,CUST-0004,Corporate,15,1533.66,0.23,17713.77,12983.2,4730.57,COD,False
+ORD-000118,2024-03-15,East,Furniture,Office Chairs,Urban Ladder Arc,CUST-0198,,7,11010.68,0.02,75533.26,46999.9,28533.36,UPI,False
+ORD-000119,2025-10-09,South,Office Supplies,Pens & Pencils,Staedtler HB Pencils,CUST-0110,,17,222.35,0.33,2532.57,1686.8,845.77,NetBanking,False
+ORD-000120,2024-11-18,East,Clothing,Dresses,Bodycon Evening Dress,CUST-0019,Consumer,2,5681.6,0.29,8067.87,4632.36,3435.51,UPI,False
+ORD-000121,2025-01-15,East,Clothing,Sportswear,Sports Bra Seamless,CUST-0032,Corporate,9,3135.64,0.1,25398.68,15090.6,10308.08,Card,False
+ORD-000122,2024-09-03,West,Electronics,Headphones,Boat Rockerz 550,CUST-0137,Corporate,9,40614.12,0.03,354561.27,226704.05,127857.22,UPI,False
+ORD-000123,2024-01-21,North,Electronics,Smartphones,Pixel 7a,CUST-0012,Consumer,13,5709.97,0.06,69775.83,40255.62,29520.21,UPI,False
+ORD-000124,2025-01-04,South,Electronics,Tablets,Galaxy Tab A8,CUST-0139,Corporate,6,25583.15,0.04,147358.94,121312.93,26046.01,COD,False
+ORD-000125,2024-02-10,South,Grocery,Spices,Catch Black Pepper 50g,CUST-0046,Consumer,6,79.5,0.04,457.92,252.69,205.23,Card,False
+ORD-000126,2025-07-25,South,Grocery,Spices,MDH Garam Masala 100g,CUST-0119,Consumer,20,1322.4,0.18,21687.36,15076.14,6611.22,COD,False
+ORD-000127,2024-05-28,East,Office Supplies,Printer Paper,Legal Size Bond Paper,CUST-0016,Home Office,20,524.62,0.09,9548.08,5604.48,3943.6,COD,False
+ORD-000128,2024-10-05,East,Office Supplies,Folders,Color-Coded Folder Set,CUST-0129,Home Office,3,1136.81,0.13,2967.07,1905.76,1061.31,Card,False
+ORD-000129,2025-03-06,East,Clothing,T-Shirts,Graphic Print Tee,CUST-0063,Corporate,17,599.18,0.35,6620.94,5480.93,1140.01,Card,True
+ORD-000130,2024-09-30,West,Electronics,Smartphones,Pixel 7a,CUST-0109,Consumer,17,61015.72,0.24,788323.1,471817.97,316505.13,COD,False
+ORD-000131,2024-03-18,North,Grocery,Cooking Oils,Borges Canola Oil,CUST-0119,Corporate,12,504.85,0.33,4058.99,3408.54,650.45,COD,False
+ORD-000132,2024-09-07,East,Furniture,Sofas,Loveseat Compact,CUST-0021,Consumer,16,45100.12,0.05,685521.82,419359.96,266161.86,UPI,False
+ORD-000133,2024-09-29,North,Furniture,Bed Frames,Metal Loft Bed,CUST-0158,Consumer,15,44629.67,0.13,582417.19,449899.71,132517.48,Card,False
+ORD-000134,2024-02-25,West,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0013,Consumer,13,684.32,0.19,7205.89,5145.03,2060.86,UPI,False
+ORD-000135,2025-11-27,South,Electronics,Tablets,OnePlus Pad,CUST-0162,Corporate,1,81383.6,0.03,78942.09,64364.93,14577.16,NetBanking,False
+ORD-000136,2024-12-19,East,Electronics,Cameras,GoPro Hero 12,CUST-0004,Corporate,17,89665.72,0.0,1524317.24,1091712.92,432604.32,Card,False
+ORD-000137,2024-05-07,North,Clothing,Sportswear,Track Suit Set,CUST-0156,Consumer,3,6655.53,0.23,15374.27,10921.39,4452.88,NetBanking,False
+ORD-000138,2025-12-26,North,Electronics,Laptops,ThinkPad E14,CUST-0102,Corporate,15,76503.81,0.22,895094.58,544788.04,350306.54,Card,False
+ORD-000139,2024-06-02,East,Office Supplies,Markers,Stabilo Boss Highlighters,CUST-0059,Home Office,4,535.57,0.14,1842.36,1105.17,737.19,Card,False
+ORD-000140,2024-05-12,South,Electronics,Laptops,ThinkPad E14,CUST-0128,Consumer,4,53173.11,0.17,176534.73,145631.75,30902.98,UPI,True
+ORD-000141,2024-04-05,South,Furniture,Office Chairs,Green Soul Beast,CUST-0027,Corporate,18,5228.28,0.15,79992.68,51863.37,28129.31,UPI,False
+ORD-000142,2025-11-29,South,Furniture,Wardrobes,Open Wardrobe System,CUST-0069,Home Office,17,6556.06,0.01,110338.49,73002.67,37335.82,Card,False
+ORD-000143,2024-04-09,West,Furniture,Sofas,Loveseat Compact,CUST-0025,,19,49946.85,0.12,835111.33,649672.44,185438.89,UPI,False
+ORD-000144,2025-09-16,North,Clothing,Jeans,Regular Fit Jeans,CUST-0131,Consumer,11,2814.45,0.06,29101.41,18963.85,10137.56,Card,False
+ORD-000145,2024-12-31,North,Furniture,Wardrobes,2-Door Wooden Wardrobe,CUST-0097,Corporate,20,37912.83,0.03,735508.9,614605.02,120903.88,,False
+ORD-000146,2024-08-12,North,Office Supplies,Pens & Pencils,Staedtler HB Pencils,CUST-0196,Corporate,3,1623.0,0.33,3262.23,2516.41,745.82,,False
+ORD-000147,2025-01-15,West,Office Supplies,Staplers,Rapid Classic,CUST-0025,Corporate,8,1723.15,0.21,10890.31,7941.53,2948.78,COD,False
+ORD-000148,2024-07-24,North,Clothing,Dresses,Midi A-Line Dress,CUST-0148,Consumer,14,7981.74,0.26,82690.83,67332.54,15358.29,UPI,False
+ORD-000149,2024-03-20,West,Grocery,Spices,Organic India Cumin,CUST-0162,Home Office,1,385.0,0.11,342.65,193.56,149.09,UPI,False
+ORD-000150,2024-05-16,South,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0154,Consumer,14,609.74,0.14,7341.27,4603.85,2737.42,UPI,False
+ORD-000151,2025-06-15,East,Electronics,Tablets,Galaxy Tab A8,CUST-0126,Consumer,2,38773.66,0.08,71343.53,49192.14,22151.39,COD,False
+ORD-000152,2024-01-04,North,Electronics,Cameras,Nikon Z30,CUST-0133,Corporate,4,14317.02,0.03,55550.04,34335.12,21214.92,Card,False
+ORD-000153,2025-10-31,North,Furniture,Office Chairs,ErgoMax Pro,CUST-0189,Consumer,19,14484.46,0.06,258692.46,200013.65,58678.81,NetBanking,False
+ORD-000154,2024-06-20,South,Office Supplies,Pens & Pencils,Faber-Castell Graphite,CUST-0009,Consumer,6,752.83,0.28,3252.23,2685.57,566.66,NetBanking,False
+ORD-000155,2024-09-18,East,Electronics,Tablets,Fire HD 10,CUST-0116,Consumer,1,71185.23,0.24,54100.77,36633.31,17467.46,UPI,True
+ORD-000156,2024-02-11,West,Office Supplies,Markers,Artline Whiteboard Markers,CUST-0178,Consumer,17,1154.05,0.19,15891.27,10371.27,5520.0,Card,False
+ORD-000157,2025-08-24,East,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0134,Consumer,8,659.92,0.17,4381.87,3674.05,707.82,NetBanking,False
+ORD-000158,2025-05-14,South,Furniture,Desks,Compact Laptop Desk,CUST-0060,Home Office,19,33408.42,0.32,431636.79,295004.64,136632.15,Card,False
+ORD-000159,2024-01-28,South,Clothing,,Compression Leggings,CUST-0172,Consumer,1,2085.77,0.03,2023.2,1409.59,613.61,UPI,False
+ORD-000160,2024-06-23,East,Electronics,Cameras,GoPro Hero 12,CUST-0121,Corporate,5,4251.19,0.1,19130.36,12539.85,6590.51,NetBanking,False
+ORD-000161,2024-04-19,West,Electronics,Laptops,ThinkPad E14,CUST-0139,Corporate,16,69498.74,0.12,978542.26,805207.73,173334.53,Card,False
+ORD-000162,2025-05-07,West,Clothing,Jackets,Quilted Puffer Jacket,CUST-0194,Home Office,6,5102.45,0.27,22348.73,16106.43,6242.3,,False
+ORD-000163,2025-11-26,North,Office Supplies,Staplers,Kangaro DS-23S,CUST-0175,Consumer,8,1536.49,0.35,7989.75,6221.24,1768.51,Card,False
+ORD-000164,2025-07-27,West,Clothing,Dresses,Floral Wrap Dress,CUST-0108,Home Office,13,598.86,0.08,7162.37,5683.64,1478.73,NetBanking,False
+ORD-000165,2025-02-26,East,Office Supplies,Notebooks,Moleskine Classic,CUST-0108,Corporate,16,1682.38,0.31,18573.48,12120.21,6453.27,UPI,False
+ORD-000166,2024-03-02,South,Electronics,Smartphones,Galaxy A54,CUST-0131,Corporate,3,201254.63,0.29,428672.36,291543.63,137128.73,Card,False
+ORD-000167,2025-10-22,North,Clothing,Jeans,Straight Cut Denim,CUST-0076,Corporate,19,4637.71,0.08,81067.17,65221.91,15845.26,Card,True
+ORD-000168,2024-11-27,North,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0030,Corporate,12,5109.15,0.14,52726.43,34745.48,17980.95,COD,False
+ORD-000169,2025-12-05,South,Clothing,T-Shirts,V-Neck Slim Fit,CUST-0021,Consumer,16,6956.0,0.14,95714.56,75440.35,20274.21,Card,False
+ORD-000170,2025-07-04,West,Furniture,Bookshelves,5-Tier Ladder Shelf,CUST-0156,Corporate,11,30172.95,0.34,219055.62,182319.49,36736.13,Card,False
+ORD-000171,2024-03-19,South,Office Supplies,Notebooks,Classmate 200 Pages,CUST-0190,Corporate,10,1182.85,0.06,11118.79,8194.14,2924.65,Card,False
+ORD-000172,2025-06-24,West,Furniture,Sofas,L-Shape Sectional,CUST-0161,Corporate,20,49552.6,0.28,713557.44,551214.69,162342.75,UPI,True
+ORD-000173,2024-10-27,South,Electronics,Smart Watches,Galaxy Watch 6,CUST-0163,,4,68835.52,0.12,242301.03,191788.34,50512.69,UPI,False
+ORD-000174,2025-03-26,East,Grocery,Cooking Oils,Dhara Mustard Oil 2L,CUST-0180,Consumer,12,680.17,0.26,6039.91,4853.14,1186.77,,False
+ORD-000175,2024-11-10,West,Electronics,Smart Watches,Noise ColorFit,CUST-0034,,2,64543.54,0.15,109724.02,73352.26,36371.76,Card,False
+ORD-000176,2024-01-25,East,Grocery,Spices,Organic India Cumin,CUST-0041,Consumer,19,602.17,0.2,9152.98,5174.9,3978.08,Card,False
+ORD-000177,2024-07-24,North,Office Supplies,Printer Paper,Glossy Photo Paper,CUST-0051,Consumer,5,496.31,0.29,1761.9,1181.46,580.44,Card,False
+ORD-000178,2024-10-22,South,Electronics,Laptops,HP Pavilion 15,CUST-0175,Consumer,8,54926.11,0.28,316374.39,237953.68,78420.71,UPI,False
+ORD-000179,2025-12-15,North,Office Supplies,Notebooks,Leuchtturm1917 A5,CUST-0082,Consumer,7,1859.96,0.3,9113.8,6243.91,2869.89,NetBanking,True
+ORD-000180,2024-09-03,North,Grocery,Cooking Oils,Fortune Sunflower Oil 5L,CUST-0058,Corporate,14,1395.84,0.02,19150.92,14836.01,4314.91,Card,False
+ORD-000181,2024-05-19,North,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0075,Consumer,3,2932.01,0.24,6684.98,4392.67,2292.31,,False
+ORD-000182,2025-01-31,North,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0185,Consumer,18,4362.64,0.05,74601.14,55236.42,19364.72,,False
+ORD-000183,2024-04-14,South,Clothing,,V-Neck Slim Fit,CUST-0023,Home Office,16,1928.81,0.15,26231.82,15894.54,10337.28,COD,False
+ORD-000184,2024-12-10,North,Clothing,Formal Shirts,Mandarin Collar Shirt,CUST-0176,Home Office,19,7966.36,0.19,122602.28,94993.57,27608.71,COD,False
+ORD-000185,2024-09-22,South,Grocery,Breakfast Cereals,Chocos 375g,CUST-0128,Corporate,19,1472.24,0.14,24056.4,17169.26,6887.14,NetBanking,False
+ORD-000186,2025-09-05,South,Electronics,Cameras,Fujifilm X-T30,CUST-0150,Home Office,18,206382.31,0.18,3046202.9,1861898.05,1184304.85,Card,False
+ORD-000187,2024-09-09,East,Office Supplies,Markers,Expo Dry Erase Set,CUST-0017,Corporate,20,1618.61,0.35,21041.93,13415.77,7626.16,Card,False
+ORD-000188,2024-03-25,West,Electronics,Laptops,Asus VivoBook,CUST-0069,Consumer,16,65213.71,0.05,991248.39,767803.77,223444.62,Card,False
+ORD-000189,2024-09-12,West,Grocery,Snacks,Oreo Family Pack,CUST-0108,Consumer,8,901.94,0.24,5483.8,3810.04,1673.76,,False
+ORD-000190,2024-11-30,South,Grocery,Beverages,Tropicana Orange 1L,CUST-0139,Corporate,1,108.42,0.14,93.24,57.32,35.92,UPI,False
+ORD-000191,2024-10-17,East,Electronics,Tablets,Lenovo Tab M10,CUST-0094,Consumer,17,176609.71,0.05,2852246.82,2396404.6,455842.22,NetBanking,False
+ORD-000192,2025-02-10,South,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0015,Corporate,12,5495.53,0.06,61989.58,47393.36,14596.22,COD,True
+ORD-000193,2024-04-22,South,Grocery,Breakfast Cereals,Chocos 375g,CUST-0091,Consumer,11,1025.97,0.33,7561.4,6329.95,1231.45,NetBanking,False
+ORD-000194,2025-01-19,South,Electronics,,Dell Inspiron 15,CUST-0163,Consumer,5,35461.67,0.31,122342.76,82964.48,39378.28,UPI,False
+ORD-000195,2024-03-16,East,Office Supplies,Notebooks,Leuchtturm1917 A5,CUST-0033,Corporate,12,1886.3,0.32,15392.21,10659.57,4732.64,NetBanking,False
+ORD-000196,2025-06-11,West,Grocery,Snacks,Lays Classic Chips,CUST-0125,Corporate,17,276.01,0.35,3049.91,2499.06,550.85,Card,False
+ORD-000197,2024-10-30,East,Electronics,Laptops,Asus VivoBook,CUST-0016,Corporate,6,46531.27,0.07,259644.49,183702.32,75942.17,Card,False
+ORD-000198,2025-04-21,North,Clothing,T-Shirts,Oversized Fit Tee,CUST-0162,Corporate,1,5619.5,0.12,4945.16,3769.12,1176.04,NetBanking,False
+ORD-000199,2025-01-28,East,Furniture,Sofas,Loveseat Compact,CUST-0066,Consumer,5,35462.52,0.23,136530.7,85420.69,51110.01,Card,False
+ORD-000200,2025-07-17,East,Grocery,Dairy Products,Mother Dairy Milk 1L,CUST-0168,,14,983.5,0.17,11428.27,7817.14,3611.13,UPI,False
+ORD-000201,2025-07-27,East,Grocery,Snacks,Haldiram Namkeen 400g,CUST-0156,Home Office,5,434.67,0.15,1847.35,1084.46,762.89,Card,True
+ORD-000202,2024-03-11,East,Grocery,Breakfast Cereals,Muesli Granola Mix 500g,CUST-0047,Corporate,1,259.62,0.13,225.87,138.19,87.68,NetBanking,False
+ORD-000203,2024-07-06,West,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0167,Consumer,18,4650.86,0.21,66135.23,36393.09,29742.14,,False
+ORD-000204,2024-07-19,North,Grocery,Snacks,Too Yumm Multigrain,CUST-0198,Home Office,16,910.97,0.2,11660.42,6550.59,5109.83,Card,False
+ORD-000205,2024-10-10,West,Grocery,Snacks,Too Yumm Multigrain,CUST-0148,Consumer,9,1210.02,0.06,10236.77,8631.49,1605.28,NetBanking,False
+ORD-000206,2025-09-23,West,Furniture,Bookshelves,Floating Shelf Set,CUST-0124,Consumer,19,35846.68,0.17,565302.14,352017.1,213285.04,Card,True
+ORD-000207,2024-06-20,East,Clothing,Dresses,Bodycon Evening Dress,CUST-0001,,5,3804.28,0.19,15407.33,11539.99,3867.34,UPI,False
+ORD-000208,2024-06-20,South,Electronics,Cameras,Nikon Z30,CUST-0200,Corporate,2,61095.17,0.2,97752.27,78370.92,19381.35,NetBanking,True
+ORD-000209,2025-09-26,South,Office Supplies,Folders,Expanding File Folder,CUST-0087,Corporate,15,1682.87,0.07,23476.04,16790.02,6686.02,NetBanking,False
+ORD-000210,2025-06-25,West,Electronics,Smartphones,Nord CE 3,CUST-0128,Consumer,7,17766.37,0.26,92029.8,54844.55,37185.25,COD,True
+ORD-000211,2025-05-28,West,Electronics,Laptops,Asus VivoBook,CUST-0191,Home Office,4,4665.6,0.01,18475.78,14197.43,4278.35,Card,False
+ORD-000212,2025-01-21,East,Electronics,Smart Watches,Galaxy Watch 6,CUST-0067,Consumer,1,70781.93,0.12,62288.1,45475.01,16813.09,NetBanking,False
+ORD-000213,2025-07-26,West,Clothing,Sportswear,Track Suit Set,CUST-0004,Consumer,13,4994.28,0.27,47395.72,36465.09,10930.63,UPI,False
+ORD-000214,2024-11-04,East,Furniture,Desks,Wooden Study Desk,CUST-0186,Consumer,20,35582.7,0.2,569323.2,444598.14,124725.06,COD,False
+ORD-000215,2024-11-12,South,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0153,Consumer,7,6753.63,0.09,43020.62,36250.17,6770.45,Card,True
+ORD-000216,2025-05-02,South,Electronics,,Apple Watch SE,CUST-0047,Consumer,15,72844.55,0.24,830427.87,599626.21,230801.66,NetBanking,False
+ORD-000217,2024-04-20,North,Furniture,Office Chairs,Featherlite Executive,CUST-0038,Corporate,14,48124.17,0.2,538990.7,351687.3,187303.4,UPI,False
+ORD-000218,2024-11-21,South,Office Supplies,Pens & Pencils,Staedtler HB Pencils,CUST-0143,Home Office,19,1095.07,0.28,14980.56,11153.62,3826.94,Card,False
+ORD-000219,2025-03-27,West,Clothing,T-Shirts,Polo Round Neck,CUST-0191,Corporate,20,4060.9,0.26,60101.32,34289.74,25811.58,UPI,True
+ORD-000220,2025-06-30,South,Furniture,Office Chairs,ErgoMax Pro,CUST-0021,Consumer,18,21290.59,0.21,302752.19,248020.41,54731.78,Card,False
+ORD-000221,2024-06-02,East,Office Supplies,Folders,Zip Document Folder,CUST-0057,Consumer,10,349.7,0.17,2902.51,1700.33,1202.18,UPI,False
+ORD-000222,2025-01-03,South,Grocery,Snacks,Haldiram Namkeen 400g,CUST-0117,Consumer,9,871.73,0.05,7453.29,4832.36,2620.93,COD,False
+ORD-000223,2025-01-13,North,Office Supplies,Folders,Plastic L-Folder Pack,CUST-0181,Consumer,8,590.17,0.09,4296.44,3414.48,881.96,UPI,False
+ORD-000224,2025-12-19,South,Electronics,Cameras,Canon EOS M50,CUST-0046,Corporate,10,83153.75,0.15,706806.88,515399.13,191407.75,UPI,False
+ORD-000225,2025-07-31,East,Electronics,Smartphones,Galaxy A54,CUST-0142,Consumer,17,53737.6,0.21,721695.97,482158.33,239537.64,UPI,False
+ORD-000226,2025-05-21,East,Grocery,Dairy Products,Mother Dairy Milk 1L,CUST-0145,Corporate,2,901.48,0.18,1478.43,1023.12,455.31,Card,False
+ORD-000227,2025-06-15,West,Electronics,Headphones,Bose QC45,CUST-0039,Home Office,6,33878.45,0.1,182943.63,147519.2,35424.43,,False
+ORD-000228,2024-12-29,South,Grocery,Beverages,Red Bull 250ml 4pk,CUST-0137,Consumer,5,106.42,0.0,532.1,346.93,185.17,UPI,False
+ORD-000229,2025-11-28,East,Office Supplies,Folders,Color-Coded Folder Set,CUST-0099,Home Office,9,111.9,0.17,835.89,677.82,158.07,Card,False
+ORD-000230,2024-01-25,North,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0077,Corporate,5,652.3,0.1,2935.35,1692.05,1243.3,Card,False
+ORD-000231,2024-05-13,West,Clothing,Dresses,Casual Shirt Dress,CUST-0115,Corporate,18,950.24,0.26,12657.2,9911.09,2746.11,UPI,False
+ORD-000232,2024-06-12,North,Grocery,Cooking Oils,Figaro Olive Oil 1L,CUST-0134,Corporate,20,922.07,0.01,18256.99,14683.45,3573.54,Card,True
+ORD-000233,2024-11-20,South,Furniture,Bed Frames,King Storage Bed,CUST-0151,Consumer,9,44286.7,0.2,318864.24,192767.88,126096.36,Card,False
+ORD-000234,2025-10-20,South,Clothing,Jackets,Fleece Zip-Up,CUST-0187,Consumer,17,7098.33,0.33,80849.98,54905.54,25944.44,UPI,False
+ORD-000235,2024-11-19,South,Furniture,Bed Frames,Metal Loft Bed,CUST-0091,Consumer,17,33634.18,0.06,537474.2,322296.37,215177.83,Card,False
+ORD-000236,2024-10-30,West,Office Supplies,Notebooks,Spiral Hardcover,CUST-0098,Consumer,12,461.9,0.17,4600.52,3505.51,1095.01,COD,False
+ORD-000237,2024-11-21,East,Office Supplies,Notebooks,Classmate 200 Pages,CUST-0120,Corporate,7,1732.84,0.03,11765.98,8360.96,3405.02,COD,False
+ORD-000238,2025-08-09,West,Grocery,Spices,Tata Salt 1kg,CUST-0046,Consumer,3,1332.56,0.22,3118.19,2309.32,808.87,NetBanking,False
+ORD-000239,2025-08-25,North,Grocery,Snacks,Britannia Biscuits Pack,CUST-0038,Home Office,10,319.08,0.19,2584.55,1573.85,1010.7,Card,False
+ORD-000240,2025-12-02,West,Clothing,Jackets,Quilted Puffer Jacket,CUST-0142,Corporate,2,5977.92,0.14,10282.02,6308.26,3973.76,NetBanking,False
+ORD-000241,2025-03-15,North,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0100,Consumer,3,15752.94,0.18,38752.23,21796.16,16956.07,NetBanking,False
+ORD-000242,2024-05-04,West,Furniture,Bookshelves,5-Tier Ladder Shelf,CUST-0072,Consumer,16,40526.73,0.31,447415.1,289307.67,158107.43,NetBanking,False
+ORD-000243,2024-02-19,East,Clothing,T-Shirts,Basic Cotton Tee,CUST-0190,Home Office,2,7978.73,0.07,14840.44,10654.3,4186.14,Card,False
+ORD-000244,2024-02-03,North,Electronics,Smart Watches,Garmin Venu 2,CUST-0035,Home Office,10,5612.26,0.01,55561.37,44859.17,10702.2,UPI,True
+ORD-000245,2024-06-16,South,Electronics,Smart Watches,Fitbit Versa 4,CUST-0147,Corporate,6,81070.83,0.3,340497.49,255399.76,85097.73,NetBanking,False
+ORD-000246,2024-06-10,South,Furniture,Office Chairs,Featherlite Executive,CUST-0030,Consumer,11,31886.27,0.2,280599.18,190981.1,89618.08,UPI,False
+ORD-000247,2024-10-22,West,Furniture,Wardrobes,3-Door Sliding Wardrobe,CUST-0078,Consumer,7,48722.37,0.31,235329.05,196720.03,38609.02,UPI,False
+ORD-000248,2024-07-30,South,Furniture,Office Chairs,Featherlite Executive,CUST-0084,Consumer,15,24320.46,0.21,288197.45,220693.99,67503.46,UPI,True
+ORD-000249,2025-11-04,North,Electronics,Headphones,Sennheiser HD450,CUST-0113,Consumer,6,76722.75,0.28,331442.28,274782.08,56660.2,UPI,True
+ORD-000250,2025-04-12,South,Electronics,Laptops,MacBook Air M2,CUST-0025,Corporate,20,8428.28,0.15,143280.76,101482.38,41798.38,Card,False
+ORD-000251,2025-05-03,East,Electronics,Cameras,GoPro Hero 12,CUST-0168,Corporate,9,32169.28,0.26,214247.4,134476.94,79770.46,UPI,False
+ORD-000252,2024-06-23,East,Grocery,Dairy Products,Britannia Cheese Slices,CUST-0088,Corporate,20,128.51,0.32,1747.74,988.96,758.78,Card,False
+ORD-000253,2025-03-15,West,Furniture,Sofas,Futon Convertible,CUST-0014,Home Office,12,48816.47,0.2,468638.11,359832.27,108805.84,UPI,False
+ORD-000254,2025-08-02,North,Furniture,Wardrobes,3-Door Sliding Wardrobe,CUST-0154,Corporate,19,41214.75,0.06,736095.44,431639.67,304455.77,Card,False
+ORD-000255,2024-04-08,East,Clothing,T-Shirts,V-Neck Slim Fit,CUST-0102,Consumer,20,6864.47,0.09,124933.35,80061.36,44871.99,UPI,False
+ORD-000256,2024-07-27,East,Electronics,Smartphones,Redmi Note 12,CUST-0150,Consumer,3,84602.98,0.07,236042.31,167528.97,68513.34,Card,False
+ORD-000257,2025-01-18,North,Grocery,Snacks,Britannia Biscuits Pack,CUST-0176,Home Office,15,155.1,0.09,2117.12,1522.9,594.22,NetBanking,False
+ORD-000258,2025-12-09,South,Clothing,T-Shirts,Basic Cotton Tee,CUST-0083,Consumer,2,3268.49,0.11,5817.91,4248.09,1569.82,NetBanking,False
+ORD-000259,2024-07-11,South,Electronics,,Fire HD 10,CUST-0110,Home Office,2,9180.04,0.19,14871.66,8921.16,5950.5,,False
+ORD-000260,2024-01-23,West,Furniture,Sofas,3-Seater Linen Sofa,CUST-0179,Home Office,3,12118.07,0.21,28719.83,19067.7,9652.13,Card,False
+ORD-000261,2024-12-01,South,Grocery,,Quaker Oats 1kg,CUST-0131,Consumer,6,367.17,0.15,1872.57,1376.64,495.93,Card,False
+ORD-000262,2024-05-31,North,Grocery,Beverages,Nescafe Classic 200g,CUST-0170,Corporate,15,719.59,0.22,8419.2,7080.09,1339.11,COD,False
+ORD-000263,2025-11-13,East,Office Supplies,Staplers,Deli 0394 Stapler,CUST-0019,Home Office,10,573.7,0.03,5564.89,4275.45,1289.44,UPI,False
+ORD-000264,2024-05-24,South,Office Supplies,Staplers,Deli 0394 Stapler,CUST-0028,Corporate,9,246.91,0.03,2155.52,1782.14,373.38,UPI,False
+ORD-000265,2025-07-18,West,Electronics,Smart Watches,Fitbit Versa 4,CUST-0173,Home Office,1,17571.72,0.06,16517.42,12861.51,3655.91,,False
+ORD-000266,2025-04-18,South,Grocery,Breakfast Cereals,Muesli Granola Mix 500g,CUST-0071,Home Office,16,246.5,0.18,3234.08,2352.84,881.24,UPI,False
+ORD-000267,2024-10-04,North,Electronics,Laptops,Dell Inspiron 15,CUST-0063,Consumer,6,87657.68,0.07,489129.85,297198.73,191931.12,,False
+ORD-000268,2024-11-10,West,Grocery,Beverages,Tropicana Orange 1L,CUST-0073,Consumer,9,1146.16,0.1,9283.9,6962.98,2320.92,NetBanking,False
+ORD-000269,2024-03-11,South,Clothing,Dresses,Casual Shirt Dress,CUST-0124,Home Office,4,7751.73,0.14,26665.95,19653.18,7012.77,UPI,False
+ORD-000270,2025-02-12,West,Office Supplies,Pens & Pencils,Faber-Castell Graphite,CUST-0119,Corporate,2,907.49,0.28,1306.79,954.92,351.87,Card,False
+ORD-000271,2024-12-31,North,Office Supplies,Staplers,Deli 0394 Stapler,CUST-0121,Consumer,4,592.82,0.0,2371.28,1652.63,718.65,Card,False
+ORD-000272,2024-01-10,East,Electronics,Cameras,Sony ZV-E10,CUST-0019,Consumer,1,72451.51,0.23,55787.66,39530.97,16256.69,Card,False
+ORD-000273,2024-05-21,North,Electronics,Laptops,HP Pavilion 15,CUST-0175,Corporate,19,31384.09,0.23,459149.24,298599.79,160549.45,Card,False
+ORD-000274,2025-07-31,North,Electronics,Laptops,Asus VivoBook,CUST-0142,Home Office,10,29046.35,0.28,209133.72,147605.28,61528.44,Card,False
+ORD-000275,2024-10-30,North,Electronics,Smart Watches,Noise ColorFit,CUST-0120,Home Office,15,23228.02,0.33,233441.6,142228.21,91213.39,Card,False
+ORD-000276,2024-02-09,North,Clothing,Sportswear,Track Suit Set,CUST-0166,Corporate,19,1297.66,0.01,24408.98,19320.98,5088.0,UPI,False
+ORD-000277,2024-02-21,East,Furniture,Wardrobes,Open Wardrobe System,CUST-0181,,16,14310.23,0.05,217515.5,131756.34,85759.16,COD,False
+ORD-000278,2025-05-17,East,Electronics,Cameras,Sony ZV-E10,CUST-0061,Consumer,4,33912.82,0.31,93599.38,53865.5,39733.88,UPI,False
+ORD-000279,2024-01-09,West,Grocery,,Bisleri Water 5L,CUST-0164,Home Office,2,1020.77,0.16,1714.89,1167.62,547.27,NetBanking,False
+ORD-000280,2025-07-07,South,Grocery,Snacks,Haldiram Namkeen 400g,CUST-0168,Consumer,13,121.97,0.2,1268.49,948.19,320.3,NetBanking,False
+ORD-000281,2025-01-06,East,Grocery,Cooking Oils,Borges Canola Oil,CUST-0030,Consumer,1,339.45,0.23,261.38,178.08,83.3,Card,False
+ORD-000282,2025-05-15,East,Grocery,Spices,Tata Salt 1kg,CUST-0009,Consumer,17,1219.26,0.24,15752.84,9971.96,5780.88,NetBanking,False
+ORD-000283,2024-12-14,South,Electronics,Laptops,Asus VivoBook,CUST-0064,Corporate,13,15782.21,0.33,137463.05,98623.05,38840.0,Card,False
+ORD-000284,2024-12-15,East,Furniture,Wardrobes,2-Door Wooden Wardrobe,CUST-0161,Home Office,4,18446.97,0.35,47962.12,31372.06,16590.06,UPI,False
+ORD-000285,2024-04-17,North,Clothing,Sportswear,Dry-Fit Running Tee,CUST-0120,Consumer,7,6957.74,0.25,36528.14,30313.25,6214.89,Card,False
+ORD-000286,2024-01-08,North,Clothing,Sportswear,Gym Shorts Pro,CUST-0052,Consumer,17,1492.08,0.1,22828.82,18874.72,3954.1,COD,False
+ORD-000287,2025-07-25,South,Electronics,Tablets,Lenovo Tab M10,CUST-0089,Corporate,9,10198.1,0.31,63330.2,44376.2,18954.0,Card,False
+ORD-000288,2025-08-18,West,Clothing,Dresses,Maxi Boho Dress,CUST-0142,Home Office,4,4030.43,0.02,15799.29,10243.71,5555.58,Card,False
+ORD-000289,2025-10-09,West,Electronics,Smart Watches,Fitbit Versa 4,CUST-0053,Consumer,19,29310.5,0.08,512347.54,395091.54,117256.0,COD,False
+ORD-000290,2024-12-21,South,Electronics,,ThinkPad E14,CUST-0187,Consumer,1,52016.53,0.31,35891.41,20135.58,15755.83,Card,False
+ORD-000291,2024-04-23,South,Office Supplies,Printer Paper,Legal Size Bond Paper,CUST-0078,Consumer,10,1617.42,0.09,14718.52,10191.56,4526.96,NetBanking,False
+ORD-000292,2024-11-20,North,Office Supplies,Staplers,Swingline 747,CUST-0041,Home Office,4,317.44,0.08,1168.18,760.36,407.82,NetBanking,False
+ORD-000293,2024-02-07,West,Office Supplies,Staplers,Swingline 747,CUST-0196,,9,1182.36,0.05,10109.18,8351.81,1757.37,NetBanking,False
+ORD-000294,2025-12-12,East,Electronics,Cameras,Canon EOS M50,CUST-0068,Consumer,13,46979.26,0.3,427511.27,236670.63,190840.64,COD,False
+ORD-000295,2024-06-23,North,Grocery,Spices,Organic India Cumin,CUST-0008,Corporate,14,241.8,0.18,2775.86,1987.08,788.78,,False
+ORD-000296,2024-10-10,South,Furniture,Bookshelves,Industrial Bookshelf,CUST-0002,Corporate,10,84788.14,0.24,644389.86,497597.25,146792.61,Card,False
+ORD-000297,2024-02-25,West,Electronics,Cameras,Nikon Z30,CUST-0105,Consumer,6,26806.72,0.08,147973.09,102916.08,45057.01,NetBanking,False
+ORD-000298,2024-01-15,East,Grocery,Cooking Oils,Fortune Sunflower Oil 5L,CUST-0125,Home Office,16,747.12,0.27,8726.36,5023.08,3703.28,UPI,False
+ORD-000299,2025-07-02,East,Grocery,Snacks,Haldiram Namkeen 400g,CUST-0110,Consumer,6,150.94,0.27,661.12,556.49,104.63,UPI,False
+ORD-000300,2025-05-02,North,Grocery,Cooking Oils,Figaro Olive Oil 1L,CUST-0086,Corporate,17,705.59,0.11,10675.58,7530.59,3144.99,Card,True
+ORD-000301,2025-05-13,West,Clothing,Jackets,Denim Trucker Jacket,CUST-0169,Consumer,10,2659.08,0.14,22868.09,16791.03,6077.06,NetBanking,False
+ORD-000302,2024-07-02,West,Clothing,Jackets,Denim Trucker Jacket,CUST-0120,Corporate,18,6632.16,0.07,111022.36,68942.99,42079.37,COD,False
+ORD-000303,2025-10-31,South,Office Supplies,Printer Paper,Glossy Photo Paper,CUST-0127,Consumer,18,161.11,0.34,1913.99,1330.32,583.67,COD,False
+ORD-000304,2024-08-06,West,Electronics,Cameras,Canon EOS M50,CUST-0183,Home Office,3,39418.83,0.23,91057.5,61804.81,29252.69,UPI,False
+ORD-000305,2025-06-05,West,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0016,Corporate,20,24004.71,0.33,321663.11,184142.08,137521.03,Card,False
+ORD-000306,2025-08-16,North,Furniture,Bed Frames,Metal Loft Bed,CUST-0062,Corporate,15,36800.29,0.11,491283.87,285852.59,205431.28,UPI,False
+ORD-000307,2024-02-24,West,Furniture,Bookshelves,Cube Storage Unit,CUST-0113,Corporate,15,29565.8,0.27,323745.51,259398.42,64347.09,NetBanking,False
+ORD-000308,2025-01-18,East,Clothing,Jeans,Skinny Ripped Jeans,CUST-0176,Corporate,4,5437.2,0.27,15876.62,9874.4,6002.22,NetBanking,False
+ORD-000309,2025-10-18,North,Office Supplies,Markers,Sharpie Permanent 12pk,CUST-0158,Consumer,9,1565.25,0.24,10706.31,6514.66,4191.65,UPI,False
+ORD-000310,2025-08-05,North,Electronics,Cameras,Canon EOS M50,CUST-0012,Consumer,19,78011.66,0.34,978266.22,686227.77,292038.45,Card,False
+ORD-000311,2024-09-25,South,Electronics,Headphones,Boat Rockerz 550,CUST-0035,Home Office,17,30307.17,0.14,443090.83,345887.4,97203.43,UPI,False
+ORD-000312,2024-11-05,West,Clothing,Formal Shirts,White Oxford Shirt,CUST-0011,Consumer,11,4442.31,0.05,46422.14,26394.88,20027.26,UPI,False
+ORD-000313,2025-07-22,South,Electronics,Headphones,Sennheiser HD450,CUST-0064,Corporate,9,76089.4,0.24,520451.5,376308.49,144143.01,COD,False
+ORD-000314,2024-09-17,East,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0050,Home Office,10,1484.49,0.26,10985.23,6434.74,4550.49,UPI,True
+ORD-000315,2025-07-19,North,Office Supplies,Staplers,Swingline 747,CUST-0149,Consumer,18,1784.56,0.2,25697.66,14414.8,11282.86,Card,False
+ORD-000316,2024-01-13,North,Office Supplies,Folders,Expanding File Folder,CUST-0069,Corporate,20,774.36,0.07,14403.1,8149.61,6253.49,UPI,False
+ORD-000317,2025-12-03,North,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0048,Consumer,13,430.57,0.18,4589.88,3673.05,916.83,Card,False
+ORD-000318,2024-02-24,East,Clothing,Jackets,Leather Biker Jacket,CUST-0020,Corporate,8,4067.81,0.11,28962.81,16954.59,12008.22,COD,False
+ORD-000319,2025-10-03,East,Furniture,Desks,Wooden Study Desk,CUST-0101,Consumer,7,37598.79,0.15,223712.8,126072.32,97640.48,UPI,False
+ORD-000320,2024-04-12,South,Clothing,Sportswear,Dry-Fit Running Tee,CUST-0195,Consumer,17,4092.27,0.23,53567.81,36499.5,17068.31,UPI,False
+ORD-000321,2025-09-22,South,Office Supplies,Markers,Sharpie Permanent 12pk,CUST-0172,Corporate,15,992.2,0.26,11013.42,8845.96,2167.46,UPI,True
+ORD-000322,2025-10-28,South,Furniture,Desks,Compact Laptop Desk,CUST-0161,Home Office,20,42235.06,0.08,777125.1,488596.05,288529.05,NetBanking,False
+ORD-000323,2025-07-08,West,Grocery,Beverages,Tropicana Orange 1L,CUST-0189,Corporate,15,561.26,0.14,7240.25,4898.13,2342.12,NetBanking,False
+ORD-000324,2024-05-27,North,Clothing,T-Shirts,Oversized Fit Tee,CUST-0137,Corporate,1,6920.28,0.09,6297.45,3539.02,2758.43,NetBanking,False
+ORD-000325,2025-12-09,North,Clothing,,Mandarin Collar Shirt,CUST-0068,,14,3431.8,0.07,44682.04,30594.85,14087.19,Card,False
+ORD-000326,2024-07-06,South,Grocery,Cooking Oils,Figaro Olive Oil 1L,CUST-0035,,5,512.5,0.27,1870.62,1352.99,517.63,Card,False
+ORD-000327,2025-07-02,North,Grocery,Beverages,Bisleri Water 5L,CUST-0065,Consumer,11,697.37,0.32,5216.33,3762.39,1453.94,Card,False
+ORD-000328,2024-08-28,South,Clothing,T-Shirts,V-Neck Slim Fit,CUST-0008,Home Office,16,6170.6,0.13,85894.75,55808.22,30086.53,NetBanking,False
+ORD-000329,2025-02-24,West,Grocery,,Quaker Oats 1kg,CUST-0045,,2,215.22,0.26,318.53,205.34,113.19,Card,False
+ORD-000330,2024-05-09,West,Clothing,Jackets,Leather Biker Jacket,CUST-0087,Corporate,8,1811.62,0.31,10000.14,5819.95,4180.19,UPI,False
+ORD-000331,2024-07-27,East,Clothing,Sportswear,Sports Bra Seamless,CUST-0175,Home Office,11,7626.08,0.3,58720.82,38758.06,19962.76,COD,False
+ORD-000332,2024-10-31,West,Office Supplies,Notebooks,Spiral Hardcover,CUST-0168,Consumer,18,392.21,0.06,6636.19,3847.98,2788.21,COD,True
+ORD-000333,2024-01-08,South,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0076,Corporate,3,4671.07,0.33,9388.85,7323.1,2065.75,UPI,False
+ORD-000334,2025-06-11,West,Electronics,Smartphones,Pixel 7a,CUST-0182,Consumer,1,53400.36,0.13,46458.31,39019.51,7438.8,UPI,False
+ORD-000335,2024-05-28,East,Grocery,Beverages,Bisleri Water 5L,CUST-0076,Home Office,11,749.75,0.12,7257.58,6103.79,1153.79,Card,False
+ORD-000336,2025-07-30,North,Grocery,Spices,Everest Turmeric 200g,CUST-0174,Consumer,16,977.78,0.02,15331.59,12411.25,2920.34,NetBanking,False
+ORD-000337,2024-06-16,South,Electronics,Laptops,Asus VivoBook,CUST-0047,Corporate,18,104266.08,0.17,1557735.24,1137516.91,420218.33,NetBanking,False
+ORD-000338,2024-12-20,North,Clothing,Sportswear,Sports Bra Seamless,CUST-0015,Home Office,16,4555.05,0.04,69965.57,53192.0,16773.57,Card,False
+ORD-000339,2024-05-11,East,Electronics,Headphones,Boat Rockerz 550,CUST-0105,Consumer,10,35379.07,0.09,321949.54,204618.81,117330.73,UPI,False
+ORD-000340,2025-04-03,East,Furniture,Sofas,L-Shape Sectional,CUST-0147,Consumer,18,163778.67,0.11,2623734.29,1939546.05,684188.24,NetBanking,False
+ORD-000341,2025-04-19,East,Clothing,Dresses,Casual Shirt Dress,CUST-0026,Corporate,6,1386.56,0.28,5989.94,4113.26,1876.68,COD,False
+ORD-000342,2025-06-09,North,Electronics,Smart Watches,Fitbit Versa 4,CUST-0052,Consumer,19,52666.34,0.31,690455.72,479594.13,210861.59,Card,False
+ORD-000343,2024-07-16,North,Clothing,T-Shirts,Basic Cotton Tee,CUST-0093,,4,1725.77,0.11,6143.74,4775.73,1368.01,UPI,False
+ORD-000344,2025-09-27,North,Grocery,Cooking Oils,Borges Canola Oil,CUST-0150,Consumer,13,439.61,0.3,4000.45,2538.59,1461.86,Card,False
+ORD-000345,2024-07-23,North,Office Supplies,Folders,Zip Document Folder,CUST-0021,Consumer,14,476.48,0.3,4669.5,3013.75,1655.75,Card,True
+ORD-000346,2024-08-16,East,Electronics,Laptops,ThinkPad E14,CUST-0051,Home Office,3,18906.89,0.27,41406.09,34259.09,7147.0,COD,False
+ORD-000347,2025-09-20,East,Furniture,Bookshelves,Floating Shelf Set,CUST-0038,Corporate,10,41634.13,0.05,395524.24,224209.75,171314.49,NetBanking,True
+ORD-000348,2025-11-16,South,Office Supplies,Folders,Color-Coded Folder Set,CUST-0020,Consumer,6,607.13,0.24,2768.51,1926.03,842.48,NetBanking,False
+ORD-000349,2024-07-04,South,Grocery,Breakfast Cereals,Muesli Granola Mix 500g,CUST-0157,Consumer,1,1392.87,0.33,933.22,768.82,164.4,Card,False
+ORD-000350,2024-05-15,North,Clothing,Dresses,Maxi Boho Dress,CUST-0179,Consumer,14,7768.4,0.24,82655.78,60595.69,22060.09,NetBanking,False
+ORD-000351,2024-11-29,West,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0132,Consumer,8,29420.5,0.12,207120.32,147867.78,59252.54,UPI,False
+ORD-000352,2024-02-14,West,Clothing,Dresses,Casual Shirt Dress,CUST-0055,Consumer,19,1400.25,0.18,21815.9,13633.26,8182.64,Card,False
+ORD-000353,2024-10-14,East,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0199,Consumer,14,780.37,0.23,8412.39,5493.14,2919.25,UPI,False
+ORD-000354,2025-04-22,East,Clothing,T-Shirts,Graphic Print Tee,CUST-0092,Consumer,10,6442.34,0.18,52827.19,42558.35,10268.84,Card,False
+ORD-000355,2024-07-30,East,Electronics,Laptops,HP Pavilion 15,CUST-0028,,17,34962.99,0.04,570596.0,409554.09,161041.91,NetBanking,False
+ORD-000356,2025-06-14,South,Clothing,T-Shirts,Polo Round Neck,CUST-0004,Consumer,9,969.12,0.11,7762.65,5468.19,2294.46,UPI,False
+ORD-000357,2025-10-07,South,Office Supplies,Notebooks,Spiral Hardcover,CUST-0150,Corporate,6,1135.73,0.28,4906.35,2845.06,2061.29,Card,False
+ORD-000358,2025-10-10,East,Grocery,Beverages,Coca-Cola 2L,CUST-0076,Corporate,11,1272.33,0.3,9796.94,5435.43,4361.51,,True
+ORD-000359,2024-11-04,East,Furniture,Office Chairs,Durian Slick,CUST-0173,Corporate,7,40204.47,0.05,267359.73,224343.04,43016.69,Card,True
+ORD-000360,2025-09-12,East,Clothing,Formal Shirts,White Oxford Shirt,CUST-0067,Corporate,17,1647.62,0.33,18766.39,12443.92,6322.47,Card,False
+ORD-000361,2024-06-29,West,Grocery,Beverages,Bisleri Water 5L,CUST-0086,Corporate,1,1018.96,0.12,896.68,655.44,241.24,UPI,False
+ORD-000362,2024-10-23,South,Electronics,Smartphones,Nord CE 3,CUST-0194,Home Office,5,22183.87,0.23,85407.9,49016.83,36391.07,NetBanking,False
+ORD-000363,2025-10-29,West,Grocery,Beverages,Coca-Cola 2L,CUST-0162,Corporate,9,350.77,0.26,2336.13,1763.62,572.51,Card,False
+ORD-000364,2025-09-17,West,Clothing,Jackets,Denim Trucker Jacket,CUST-0091,Corporate,18,7030.23,0.28,91111.78,75601.82,15509.96,Card,False
+ORD-000365,2025-10-30,East,Electronics,Cameras,GoPro Hero 12,CUST-0183,Home Office,2,24721.2,0.33,33126.41,23940.44,9185.97,UPI,False
+ORD-000366,2024-02-21,East,Furniture,Sofas,Recliner Sofa,CUST-0105,Corporate,11,14635.87,0.11,143285.17,84227.98,59057.19,NetBanking,False
+ORD-000367,2024-04-25,North,Clothing,Jeans,Skinny Ripped Jeans,CUST-0001,Consumer,6,304.03,0.3,1276.93,925.16,351.77,Card,False
+ORD-000368,2024-05-17,North,Electronics,Tablets,OnePlus Pad,CUST-0072,Consumer,8,78748.21,0.05,598486.4,466762.04,131724.36,Card,False
+ORD-000369,2025-05-21,West,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0087,Consumer,4,1595.56,0.25,4786.68,3216.29,1570.39,UPI,False
+ORD-000370,2025-06-21,South,Furniture,Sofas,3-Seater Linen Sofa,CUST-0166,Home Office,18,132362.02,0.26,1763062.11,1435046.74,328015.37,Card,False
+ORD-000371,2024-04-28,East,Office Supplies,Notebooks,Moleskine Classic,CUST-0006,Corporate,11,1513.02,0.24,12648.85,9418.4,3230.45,Card,False
+ORD-000372,2024-10-17,East,Electronics,Smartphones,Pixel 7a,CUST-0153,Home Office,5,16228.23,0.09,73838.45,60530.89,13307.56,NetBanking,False
+ORD-000373,2025-04-21,West,Grocery,Beverages,Coca-Cola 2L,CUST-0145,Corporate,15,703.74,0.31,7283.71,5368.47,1915.24,UPI,False
+ORD-000374,2025-09-05,North,Grocery,Dairy Products,Amul Butter 500g,CUST-0061,Consumer,18,546.29,0.06,9243.23,5447.83,3795.4,UPI,False
+ORD-000375,2025-07-20,South,Grocery,Cooking Oils,Figaro Olive Oil 1L,CUST-0012,Consumer,2,167.85,0.02,328.99,211.51,117.48,NetBanking,False
+ORD-000376,2024-01-27,North,Clothing,Jeans,Regular Fit Jeans,CUST-0006,Corporate,11,19754.26,0.25,162972.64,99501.07,63471.57,NetBanking,False
+ORD-000377,2024-07-29,North,Electronics,Smartphones,Redmi Note 12,CUST-0027,Corporate,13,83104.35,0.17,896695.94,737665.08,159030.86,Card,True
+ORD-000378,2025-11-26,North,Clothing,Jeans,Skinny Ripped Jeans,CUST-0136,Home Office,4,607.5,0.3,1701.0,1323.58,377.42,UPI,True
+ORD-000379,2025-05-20,North,Electronics,Cameras,Canon EOS M50,CUST-0124,Consumer,7,28357.1,0.13,172694.74,130025.24,42669.5,Card,False
+ORD-000380,2024-08-08,East,Electronics,Smartphones,iPhone 15,CUST-0106,Corporate,11,21056.06,0.06,217719.66,139403.7,78315.96,Card,True
+ORD-000381,2025-03-19,East,Furniture,Bookshelves,Industrial Bookshelf,CUST-0193,Corporate,4,13431.04,0.29,38144.15,23085.35,15058.8,NetBanking,False
+ORD-000382,2025-01-08,North,Office Supplies,Printer Paper,A4 80 GSM Ream,CUST-0185,Corporate,15,1821.45,0.19,22130.62,17194.06,4936.56,COD,False
+ORD-000383,2025-06-07,South,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0093,Corporate,1,3903.6,0.07,3630.35,2513.1,1117.25,COD,False
+ORD-000384,2024-11-26,West,Clothing,T-Shirts,Oversized Fit Tee,CUST-0109,Corporate,3,3889.97,0.25,8752.43,5406.7,3345.73,UPI,False
+ORD-000385,2025-10-27,South,Office Supplies,Folders,Zip Document Folder,CUST-0099,Consumer,14,1533.12,0.18,17600.22,12935.93,4664.29,Card,False
+ORD-000386,2025-11-19,South,Furniture,Office Chairs,Durian Slick,CUST-0168,Corporate,6,9415.63,0.21,44630.09,25086.58,19543.51,Card,False
+ORD-000387,2025-08-22,South,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0142,Corporate,18,746.28,0.16,11283.75,7310.19,3973.56,NetBanking,False
+ORD-000388,2025-04-28,North,Furniture,Wardrobes,Open Wardrobe System,CUST-0035,Home Office,1,22639.29,0.29,16073.9,11100.11,4973.79,UPI,False
+ORD-000389,2025-11-09,East,Office Supplies,Staplers,Kangaro DS-23S,CUST-0176,Home Office,6,1213.98,0.29,5171.55,3073.9,2097.65,UPI,False
+ORD-000390,2024-03-04,South,Electronics,Headphones,Bose QC45,CUST-0084,Consumer,6,89961.52,0.25,404826.84,342239.13,62587.71,NetBanking,False
+ORD-000391,2025-02-17,North,Clothing,Jackets,Fleece Zip-Up,CUST-0056,,16,6224.53,0.04,95608.78,58582.29,37026.49,,False
+ORD-000392,2024-12-13,South,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0177,Home Office,5,9680.56,0.29,34365.99,20245.21,14120.78,NetBanking,False
+ORD-000393,2025-12-22,South,Electronics,Smartphones,iPhone 15,CUST-0141,Corporate,17,74997.12,0.23,981712.3,599885.57,381826.73,Card,True
+ORD-000394,2024-09-25,North,Electronics,Smart Watches,Noise ColorFit,CUST-0189,Home Office,10,17851.63,0.24,135672.39,105921.92,29750.47,NetBanking,False
+ORD-000395,2024-11-09,East,Clothing,Formal Shirts,Striped Slim Fit Shirt,CUST-0049,Consumer,18,533.6,0.13,8356.18,5662.58,2693.6,COD,True
+ORD-000396,2025-05-16,East,Clothing,Formal Shirts,Striped Slim Fit Shirt,CUST-0046,Corporate,7,6919.69,0.31,33422.1,24051.37,9370.73,,False
+ORD-000397,2024-01-23,West,Furniture,Office Chairs,Durian Slick,CUST-0113,Corporate,3,18339.75,0.25,41264.44,22955.52,18308.92,UPI,True
+ORD-000398,2025-01-24,North,Grocery,Breakfast Cereals,Chocos 375g,CUST-0190,Home Office,13,780.55,0.04,9741.26,5458.31,4282.95,Card,False
+ORD-000399,2024-04-03,West,Electronics,Smartphones,Redmi Note 12,CUST-0136,Consumer,15,56516.24,0.14,729059.5,498492.73,230566.77,COD,False
+ORD-000400,2024-12-10,West,Office Supplies,Notebooks,Moleskine Classic,CUST-0043,Corporate,20,1825.68,0.31,25194.38,20029.45,5164.93,Card,False
+ORD-000401,2024-12-14,West,Grocery,Dairy Products,Epigamia Greek Yogurt,CUST-0148,Corporate,19,779.49,0.02,14514.1,11837.29,2676.81,UPI,False
+ORD-000402,2024-03-13,East,Furniture,Wardrobes,3-Door Sliding Wardrobe,CUST-0124,Consumer,3,26061.23,0.34,51601.24,29722.93,21878.31,Card,False
+ORD-000403,2024-06-13,North,Clothing,Jeans,Skinny Ripped Jeans,CUST-0097,Corporate,4,685.92,0.24,2085.2,1483.64,601.56,NetBanking,False
+ORD-000404,2024-10-12,West,Furniture,Bookshelves,Industrial Bookshelf,CUST-0090,Corporate,5,3675.75,0.22,14335.42,11811.94,2523.48,Card,False
+ORD-000405,2024-09-20,North,Furniture,Desks,Standing Desk Pro,CUST-0039,Home Office,1,28455.68,0.09,25894.67,17256.0,8638.67,Card,False
+ORD-000406,2024-04-28,North,Grocery,Breakfast Cereals,Chocos 375g,CUST-0085,Consumer,4,674.12,0.09,2453.8,1960.27,493.53,UPI,False
+ORD-000407,2024-10-28,East,Furniture,Wardrobes,Open Wardrobe System,CUST-0177,Consumer,12,42280.66,0.33,339936.51,200599.49,139337.02,COD,False
+ORD-000408,2024-07-19,West,Grocery,Snacks,Britannia Biscuits Pack,CUST-0192,Consumer,10,266.2,0.1,2395.8,1990.0,405.8,Card,False
+ORD-000409,2025-05-02,West,Electronics,Smartphones,Redmi Note 12,CUST-0062,Consumer,20,5172.53,0.27,75518.94,58559.42,16959.52,Card,True
+ORD-000410,2024-04-03,North,Electronics,,Galaxy Tab A8,CUST-0106,Consumer,13,42066.37,0.14,470302.02,391479.55,78822.47,NetBanking,False
+ORD-000411,2024-08-29,South,Electronics,Headphones,JBL Tune 760,CUST-0107,Corporate,14,23660.63,0.05,314686.38,236954.18,77732.2,UPI,False
+ORD-000412,2024-02-10,East,Clothing,Dresses,Maxi Boho Dress,CUST-0054,Consumer,5,681.08,0.0,3405.4,2244.23,1161.17,COD,False
+ORD-000413,2024-04-20,East,Furniture,Bookshelves,Industrial Bookshelf,CUST-0126,Home Office,4,36780.72,0.19,119169.53,99084.02,20085.51,Card,False
+ORD-000414,2024-03-17,East,Grocery,Cooking Oils,Borges Canola Oil,CUST-0009,Home Office,14,194.04,0.34,1792.93,1134.33,658.6,,False
+ORD-000415,2024-06-14,East,Office Supplies,Notebooks,Spiral Hardcover,CUST-0088,Corporate,10,1236.22,0.13,10755.11,6987.08,3768.03,Card,False
+ORD-000416,2025-10-18,West,Grocery,Breakfast Cereals,Kellogg's Corn Flakes 875g,CUST-0037,Home Office,17,443.14,0.13,6554.04,4982.66,1571.38,Card,False
+ORD-000417,2024-04-27,West,Electronics,Laptops,Asus VivoBook,CUST-0049,,10,18094.16,0.12,159228.61,124133.81,35094.8,NetBanking,False
+ORD-000418,2024-04-15,South,Grocery,Spices,Everest Turmeric 200g,CUST-0041,Corporate,7,588.23,0.18,3376.44,2798.46,577.98,UPI,False
+ORD-000419,2024-04-03,East,Clothing,Dresses,Maxi Boho Dress,CUST-0017,Consumer,16,6470.93,0.15,88004.65,53809.63,34195.02,NetBanking,False
+ORD-000420,2024-10-29,East,Clothing,Sportswear,Track Suit Set,CUST-0088,Consumer,1,3318.51,0.31,2289.77,1807.54,482.23,Card,False
+ORD-000421,2025-06-30,North,Grocery,Spices,Everest Turmeric 200g,CUST-0021,Corporate,17,1133.63,0.18,15802.8,12192.87,3609.93,UPI,False
+ORD-000422,2025-05-02,West,Clothing,,Oversized Fit Tee,CUST-0051,Home Office,9,1265.37,0.18,9338.43,5314.86,4023.57,UPI,False
+ORD-000423,2025-08-03,East,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0059,Consumer,6,1556.9,0.05,8874.33,5911.79,2962.54,COD,False
+ORD-000424,2025-06-12,South,Electronics,Tablets,Lenovo Tab M10,CUST-0167,,19,23613.2,0.34,296109.53,187979.11,108130.42,Card,True
+ORD-000425,2024-09-11,South,Electronics,Smartphones,Galaxy A54,CUST-0183,Corporate,13,61933.2,0.09,732669.76,469895.65,262774.11,Card,False
+ORD-000426,2025-06-24,West,Grocery,Snacks,Lays Classic Chips,CUST-0041,Consumer,3,861.7,0.03,2507.55,2118.59,388.96,UPI,False
+ORD-000427,2025-09-20,South,Office Supplies,Staplers,Rapid Classic,CUST-0039,Home Office,7,1861.83,0.23,10035.26,7454.52,2580.74,,False
+ORD-000428,2024-01-08,South,Clothing,,Floral Wrap Dress,CUST-0141,Corporate,9,3281.77,0.21,23333.38,17857.1,5476.28,Card,False
+ORD-000429,2024-05-12,West,Office Supplies,Pens & Pencils,Cello Finegrip,CUST-0192,Consumer,5,179.02,0.15,760.84,641.38,119.46,COD,True
+ORD-000430,2025-08-12,East,Electronics,Headphones,Sennheiser HD450,CUST-0011,Corporate,10,4666.53,0.15,39665.5,26304.59,13360.91,Card,False
+ORD-000431,2025-01-17,East,Electronics,Cameras,Fujifilm X-T30,CUST-0147,Consumer,17,74936.69,0.27,929964.32,735185.2,194779.12,COD,False
+ORD-000432,2024-12-12,South,Clothing,,Basic Cotton Tee,CUST-0139,Corporate,12,4339.99,0.07,48434.29,32952.72,15481.57,Card,False
+ORD-000433,2025-01-06,South,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0077,Consumer,16,1561.73,0.29,17741.25,14385.67,3355.58,NetBanking,False
+ORD-000434,2025-01-26,East,Electronics,Laptops,ThinkPad E14,CUST-0127,Consumer,3,23395.03,0.23,54042.52,32652.34,21390.18,COD,True
+ORD-000435,2025-08-31,West,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0046,Home Office,9,722.91,0.15,5530.26,4613.93,916.33,Card,False
+ORD-000436,2024-07-19,South,Electronics,,GoPro Hero 12,CUST-0045,Corporate,15,5619.04,0.16,70799.9,43586.65,27213.25,COD,False
+ORD-000437,2024-07-18,North,Office Supplies,Printer Paper,Recycled A4 Paper,CUST-0001,Consumer,5,7708.33,0.09,35072.9,22722.54,12350.36,,False
+ORD-000438,2024-10-03,West,Furniture,Bookshelves,Wall-Mounted Bookcase,CUST-0168,Consumer,13,34057.66,0.26,327634.69,254525.52,73109.17,COD,False
+ORD-000439,2024-08-30,South,Clothing,Formal Shirts,Linen Formal Shirt,CUST-0108,Home Office,14,7485.61,0.18,85934.8,57415.32,28519.48,NetBanking,False
+ORD-000440,2025-06-09,South,Furniture,Bed Frames,Hydraulic Bed Frame,CUST-0019,Consumer,20,14743.83,0.11,262440.17,192227.82,70212.35,Card,False
+ORD-000441,2024-06-13,North,Office Supplies,Notebooks,Spiral Hardcover,CUST-0076,Consumer,15,1242.35,0.21,14721.85,10060.5,4661.35,,False
+ORD-000442,2025-04-19,North,Electronics,Tablets,Galaxy Tab A8,CUST-0072,Consumer,16,62029.5,0.35,645106.8,498481.11,146625.69,Card,False
+ORD-000443,2024-05-04,East,Electronics,Smart Watches,Galaxy Watch 6,CUST-0200,Consumer,13,30626.82,0.15,338426.36,209316.49,129109.87,Card,False
+ORD-000444,2025-10-16,West,Furniture,Sofas,3-Seater Linen Sofa,CUST-0189,,17,42709.24,0.32,493718.81,280203.89,213514.92,Card,False
+ORD-000445,2024-01-29,West,Office Supplies,Folders,Color-Coded Folder Set,CUST-0109,Corporate,8,1896.96,0.12,13354.6,8546.66,4807.94,Card,False
+ORD-000446,2024-02-28,East,Office Supplies,Notebooks,Spiral Hardcover,CUST-0012,Consumer,2,1775.47,0.02,3479.92,2409.12,1070.8,UPI,False
+ORD-000447,2025-10-11,West,Furniture,Bookshelves,5-Tier Ladder Shelf,CUST-0189,Corporate,5,37475.21,0.07,174259.73,104626.59,69633.14,NetBanking,False
+ORD-000448,2025-08-17,West,Clothing,Dresses,Maxi Boho Dress,CUST-0161,Consumer,6,2435.76,0.15,12422.38,8154.54,4267.84,Card,False
+ORD-000449,2025-04-25,West,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0045,Home Office,12,443.98,0.08,4901.54,3284.01,1617.53,Card,False
+ORD-000450,2025-09-17,West,Clothing,Jeans,Skinny Ripped Jeans,CUST-0090,Home Office,18,7717.84,0.0,138921.12,78798.5,60122.62,UPI,False
+ORD-000451,2024-11-08,West,Electronics,Headphones,Sennheiser HD450,CUST-0103,Consumer,1,3894.75,0.32,2648.43,1920.09,728.34,Card,False
+ORD-000452,2025-02-22,North,Office Supplies,,Classmate 200 Pages,CUST-0197,Home Office,17,1446.3,0.3,17210.97,14032.16,3178.81,Card,False
+ORD-000453,2025-09-11,West,Electronics,Smart Watches,Galaxy Watch 6,CUST-0008,Corporate,11,64443.42,0.26,524569.44,312393.1,212176.34,Card,False
+ORD-000454,2025-02-26,North,Electronics,Smartphones,Redmi Note 12,CUST-0153,Consumer,10,57173.99,0.06,537435.51,391974.51,145461.0,COD,False
+ORD-000455,2024-03-22,West,Grocery,Dairy Products,Amul Butter 500g,CUST-0091,Consumer,19,1485.46,0.04,27094.79,20305.43,6789.36,NetBanking,False
+ORD-000456,2025-02-27,East,Electronics,Laptops,Asus VivoBook,CUST-0174,Consumer,14,30133.51,0.02,413431.76,279397.35,134034.41,UPI,False
+ORD-000457,2024-09-05,South,Office Supplies,Markers,Crayola Washable Markers,CUST-0087,Corporate,10,712.95,0.25,5347.12,4065.57,1281.55,NetBanking,False
+ORD-000458,2025-04-30,North,Office Supplies,Printer Paper,A3 75 GSM Pack,CUST-0158,Home Office,15,203.93,0.33,2049.5,1379.76,669.74,UPI,False
+ORD-000459,2025-05-25,West,Clothing,Dresses,Floral Wrap Dress,CUST-0175,Corporate,19,3708.99,0.15,59900.19,42013.47,17886.72,NetBanking,False
+ORD-000460,2024-06-10,East,Office Supplies,Printer Paper,Glossy Photo Paper,CUST-0177,Home Office,4,559.04,0.04,2146.71,1185.43,961.28,NetBanking,False
+ORD-000461,2024-12-26,South,Electronics,Laptops,HP Pavilion 15,CUST-0175,Corporate,2,32874.64,0.18,53914.41,40841.03,13073.38,UPI,False
+ORD-000462,2024-11-03,North,Furniture,Sofas,Futon Convertible,CUST-0084,Home Office,9,42059.45,0.12,333110.84,249301.09,83809.75,Card,False
+ORD-000463,2024-03-26,South,Office Supplies,Folders,Zip Document Folder,CUST-0082,Corporate,10,1874.19,0.13,16305.45,9155.84,7149.61,Card,False
+ORD-000464,2024-04-25,East,Electronics,Cameras,GoPro Hero 12,CUST-0146,Consumer,11,19158.78,0.22,164382.33,108570.42,55811.91,UPI,False
+ORD-000465,2024-06-07,North,Furniture,Wardrobes,Mirrored Wardrobe,CUST-0194,Corporate,14,19880.43,0.25,208744.52,176119.75,32624.77,COD,False
+ORD-000466,2025-12-18,South,Electronics,Smartphones,Pixel 7a,CUST-0068,Corporate,7,83790.86,0.04,563074.58,380762.84,182311.74,UPI,True
+ORD-000467,2025-12-18,West,Electronics,Laptops,MacBook Air M2,CUST-0161,Consumer,15,8377.34,0.01,124403.5,87155.05,37248.45,NetBanking,False
+ORD-000468,2025-03-01,North,Furniture,Bed Frames,Queen Platform Bed,CUST-0127,Corporate,19,6433.31,0.35,79451.38,65386.82,14064.56,COD,False
+ORD-000469,2024-09-24,South,Electronics,Smart Watches,Noise ColorFit,CUST-0164,Consumer,15,17162.82,0.08,236846.92,181230.19,55616.73,Card,False
+ORD-000470,2024-10-09,East,Office Supplies,Pens & Pencils,Staedtler HB Pencils,CUST-0082,Corporate,8,1210.67,0.02,9491.65,6877.85,2613.8,NetBanking,False
+ORD-000471,2024-02-24,East,Clothing,Sportswear,Sports Bra Seamless,CUST-0147,Corporate,11,1457.79,0.07,14913.19,11771.6,3141.59,NetBanking,False
+ORD-000472,2024-07-16,North,Clothing,T-Shirts,Graphic Print Tee,CUST-0156,Consumer,9,7754.16,0.01,69089.57,55914.87,13174.7,COD,False
+ORD-000473,2024-05-30,South,Electronics,Headphones,Boat Rockerz 550,CUST-0168,Consumer,15,41864.16,0.14,540047.66,371048.61,168999.05,COD,False
+ORD-000474,2025-03-20,North,Electronics,Headphones,JBL Tune 760,CUST-0084,Consumer,1,46632.06,0.28,33575.08,23251.83,10323.25,NetBanking,True
+ORD-000475,2024-07-19,North,Electronics,Tablets,Galaxy Tab A8,CUST-0113,Home Office,1,96720.43,0.12,85113.98,56670.19,28443.79,Card,False
+ORD-000476,2025-07-29,South,Clothing,Dresses,Maxi Boho Dress,CUST-0076,Consumer,19,3925.86,0.16,62656.73,52632.4,10024.33,NetBanking,False
+ORD-000477,2024-02-29,South,Clothing,Formal Shirts,White Oxford Shirt,CUST-0122,Home Office,3,5396.4,0.24,12303.79,9340.42,2963.37,Card,False
+ORD-000478,2024-06-14,West,Electronics,Headphones,JBL Tune 760,CUST-0143,Consumer,10,68352.41,0.18,560489.76,322263.07,238226.69,NetBanking,True
+ORD-000479,2025-08-18,South,Grocery,Dairy Products,Nestle Yogurt 400g,CUST-0041,Home Office,8,1138.19,0.3,6373.86,5155.74,1218.12,COD,False
+ORD-000480,2024-05-14,East,Electronics,Smart Watches,Apple Watch SE,CUST-0167,Home Office,15,53276.53,0.3,559403.56,388320.04,171083.52,UPI,False
+ORD-000481,2024-05-12,North,Office Supplies,Folders,Color-Coded Folder Set,CUST-0002,Consumer,10,1813.5,0.0,18135.0,10348.31,7786.69,UPI,False
+ORD-000482,2024-08-28,North,Clothing,Sportswear,Track Suit Set,CUST-0191,Corporate,1,6593.86,0.27,4813.52,3441.26,1372.26,UPI,False
+ORD-000483,2025-05-15,East,Grocery,Cooking Oils,Fortune Sunflower Oil 5L,CUST-0029,Consumer,18,1142.86,0.16,17280.04,11666.61,5613.43,UPI,False
+ORD-000484,2024-12-19,South,Clothing,T-Shirts,V-Neck Slim Fit,CUST-0105,Corporate,2,727.22,0.35,945.39,768.91,176.48,Card,False
+ORD-000485,2024-08-31,East,Clothing,T-Shirts,Basic Cotton Tee,CUST-0194,Consumer,19,351.97,0.17,5550.57,3392.5,2158.07,NetBanking,False
+ORD-000486,2024-09-13,East,Furniture,Bed Frames,Queen Platform Bed,CUST-0051,Consumer,13,12197.47,0.35,103068.62,82242.51,20826.11,COD,False
+ORD-000487,2024-11-03,West,Clothing,Formal Shirts,Striped Slim Fit Shirt,CUST-0075,Consumer,1,5408.8,0.26,4002.51,2871.03,1131.48,COD,False
+ORD-000488,2024-09-19,East,Electronics,Headphones,Boat Rockerz 550,CUST-0010,Consumer,2,38774.18,0.09,70569.01,39969.09,30599.92,Card,False
+ORD-000489,2025-10-28,North,Grocery,Breakfast Cereals,Bagrry's Wheat Flakes,CUST-0142,Consumer,16,621.54,0.19,8055.16,6778.85,1276.31,COD,False
+ORD-000490,2024-07-22,East,Office Supplies,Markers,Sharpie Permanent 12pk,CUST-0051,Corporate,15,1774.94,0.35,17305.66,12179.46,5126.2,NetBanking,False
+ORD-000491,2025-03-08,North,Clothing,Jeans,Slim Fit Stretch Jeans,CUST-0118,Home Office,13,7195.73,0.3,65481.14,41728.71,23752.43,Card,False
+ORD-000492,2025-08-26,North,Office Supplies,Pens & Pencils,Pilot G2 Gel Pen,CUST-0121,Consumer,16,1822.89,0.03,28291.25,19544.22,8747.03,Card,True
+ORD-000493,2025-09-17,North,Clothing,Formal Shirts,White Oxford Shirt,CUST-0039,Corporate,17,2716.18,0.25,34631.3,27959.83,6671.47,Card,False
+ORD-000494,2024-01-16,South,Office Supplies,Printer Paper,Legal Size Bond Paper,CUST-0028,Consumer,7,1397.56,0.12,8608.97,5522.4,3086.57,COD,False
+ORD-000495,2024-12-11,West,Clothing,Dresses,Maxi Boho Dress,CUST-0003,,17,2390.85,0.0,40644.45,24703.82,15940.63,UPI,False
+ORD-000496,2025-01-22,North,Electronics,Headphones,Bose QC45,CUST-0084,Home Office,7,19583.06,0.14,117890.02,69404.37,48485.65,NetBanking,False
+ORD-000497,2024-05-07,North,Electronics,Laptops,MacBook Air M2,CUST-0198,Home Office,13,19063.02,0.08,227993.72,145769.57,82224.15,Card,True
+ORD-000498,2025-04-29,South,Electronics,Cameras,Sony ZV-E10,CUST-0155,Home Office,5,32763.36,0.29,116309.93,91188.66,25121.27,NetBanking,False
+ORD-000499,2025-05-28,North,Electronics,Smart Watches,Garmin Venu 2,CUST-0117,Consumer,17,40406.31,0.12,604478.4,417989.51,186488.89,Card,False
+ORD-000500,2025-03-05,East,Grocery,,Fortune Sunflower Oil 5L,CUST-0002,Home Office,3,1251.5,0.29,2665.7,1648.05,1017.65,UPI,False

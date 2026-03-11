@@ -9,7 +9,7 @@
 
 - **GitHub:** https://github.com/kushalmehta2004/ai-data-analyst-agent.git
 - **Owner:** kushalmehta2004
-- **Status:** In Development (Phase 5 Complete)
+- **Status:** In Development (Phase 6 In Progress)
 
 ---
 
@@ -119,7 +119,7 @@ ai-data-analyst-agent/
 | **Phase 3** | Chart + table rendering inline in chat | ✅ Done |
 | **Phase 4** | Self-correction loop (3 retries) | ✅ Done |
 | **Phase 5** | E2B sandbox + session memory + export buttons | ✅ Done |
-| **Phase 6** | Testing (3 datasets) + README + Docker | ⬜ Not Started |
+| **Phase 6** | Testing (3 datasets) + README + Docker | 🔄 In Progress |
 | **Buffer** | Polish + query suggestions + deploy + publish | ⬜ Not Started |
 
 > Update status to 🔄 In Progress / ✅ Done as phases complete.
@@ -263,4 +263,4 @@ docker run -p 8501:8501 --env-file .env ai-data-analyst-agent
 
 ---
 
-*Last updated: March 2026 | Phase: Phase 5 complete*
+*Last updated: March 2026 | Phase: Phase 6 in progress*

@@ -2,7 +2,8 @@
 
 # 🤖 AI Data Analyst Agent
 
-**A conversational AI agent that reads your data files and answers questions in plain English — autonomously writing, executing, and self-correcting Python code to deliver charts, tables, and insights.**
+Conversational AI data analyst that lets you upload structured datasets and ask questions in plain English.  
+The agent writes Python, executes it (secure sandbox first), retries on errors, and returns charts/tables/insights.
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![LangChain](https://img.shields.io/badge/LangChain-0.2+-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white)](https://langchain.com)
@@ -10,276 +11,264 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![E2B](https://img.shields.io/badge/E2B-Sandbox-FF6B35?style=for-the-badge)](https://e2b.dev)
 
-![Demo](assets/demo.gif)
-
 </div>
 
 ---
 
-## What It Does
+## 📌 Project Overview
 
-Upload any CSV, Excel, or JSON file and start asking questions in plain English:
+This is a portfolio-grade, agentic AI application focused on **real execution**, not just chat responses.
 
-- *"What is the average revenue by category?"* → styled table
-- *"Show me a bar chart of sales by region over time"* → rendered chart
-- *"Find correlations and flag any anomalies"* → statistical analysis
-- *"Now break that down by month"* → follow-up with conversation memory
-
-The agent **writes Python code**, **executes it in a secure sandbox**, and **self-corrects if it fails** — all without you writing a single line of code.
+- Upload data files: **CSV, Excel (.xlsx/.xls), JSON**
+- Ask natural-language analysis questions
+- Agent performs **Thought → Action → Observation** cycles
+- Generated code runs in **E2B sandbox** (with local subprocess fallback)
+- On failure, agent performs **automatic self-correction (up to 3 retries)**
+- Outputs are rendered as **tables, charts, and text summaries**
+- Multi-turn memory supports follow-ups like “now break that down by month”
+- Download outputs as **PNG** (charts) and **CSV** (tables)
 
 ---
 
-## Architecture
+## ✅ Current Status
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        Streamlit UI                             │
-│          File Upload │ Chat Interface │ Output Display          │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ User Query + Schema
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   Custom ReAct Agent Loop                       │
-│                                                                 │
-│  Thought → "I need to group by region and sum revenue"         │
-│  Action  → execute_python_code(code)                           │
-│  Obs.    → [Error: KeyError 'Revenue']                         │
-│  Thought → "Column is named 'revenue' (lowercase), fix it"     │
-│  Action  → execute_python_code(corrected_code)                 │
-│  Obs.    → DataFrame / Chart returned                          │
-│  Answer  → Summarize and display                               │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │
-              ┌─────────────┴─────────────┐
-              ▼                           ▼
-┌─────────────────────┐     ┌────────────────────────┐
-│  execute_python_code│     │     describe_data()     │
-│       tool          │     │         tool            │
-└──────────┬──────────┘     └────────────────────────┘
-           │
-           ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                     E2B Sandbox Executor                        │
-│         Isolated cloud environment — no host filesystem        │
-│         Fallback: subprocess with 30s timeout (local)          │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      Output Renderer                            │
-│        Tables → styled HTML  │  Charts → base64 PNG           │
-└─────────────────────────────────────────────────────────────────┘
+- Phase 1: Foundation + file parsing + UI shell — Complete
+- Phase 2: LLM + custom ReAct loop + local execution — Complete
+- Phase 3: Output rendering (table/chart/text) — Complete
+- Phase 4: Self-correction loop — Complete
+- Phase 5: E2B sandbox + session memory + export buttons — Complete
+- Phase 6: Testing + README + Docker hardening — In Progress
+
+---
+
+## 🧠 Architecture
+
+```mermaid
+flowchart LR
+   U[User] --> S[Streamlit UI]
+   S --> A[Custom ReAct Agent Loop]
+   A --> T[Tool Selection]
+   T --> E[E2B Sandbox Executor]
+   E --> R[Output Renderer]
+   R --> C[Streamlit Chat Response]
+   E -- Error observation --> A
+   A -- Self-correction up to 3 retries --> T
 ```
 
 ### Self-Correction Loop
 
-```
-Code Generated
-      │
-      ▼
-Execute in Sandbox
-      │
-   Error? ──── Yes ──→ Append error trace to history
-      │                        │
-      No                       ▼
-      │              Re-prompt LLM: "Fix this error"
-      ▼                        │
-   Return Output     Attempt 2 / 3 ──→ (repeat)
-                               │
-                          3 failures?
-                               │
-                               ▼
-                    "Could not complete analysis.
-                     Please rephrase your question."
+```mermaid
+flowchart TD
+   G[Code Generated] --> X[Execute Code]
+   X --> Q{Error?}
+   Q -- No --> O[Return Output]
+   Q -- Yes --> H[Append error context]
+   H --> P[Re-prompt model to fix code]
+   P --> N{Attempt <= 3?}
+   N -- Yes --> X
+   N -- No --> F[Graceful failure message]
 ```
 
 ---
 
-## Key Features
-
-| Feature | Detail |
-|---|---|
-| **Custom ReAct Loop** | Explicit `Thought → Action → Observation` trace visible in UI — not a black-box LangChain wrapper |
-| **Self-Correction** | Up to 3 automatic retries with error context fed back to LLM |
-| **E2B Sandbox** | Code runs in isolated cloud environment — zero host filesystem access |
-| **Multi-turn Memory** | Follow-up questions understand prior context within the session |
-| **Structured Output** | Pydantic + instructor library ensures clean code extraction every time |
-| **Multi-provider LLM** | Switch between GPT-4o and Claude Sonnet via `.env` |
-| **Export** | Download charts as PNG, tables as CSV |
-
----
-
-## Tech Stack
+## 🧩 Tech Stack
 
 | Layer | Technology |
 |---|---|
-| **LLM** | OpenAI GPT-4o (default) / Anthropic Claude Sonnet |
-| **Agent Framework** | Custom ReAct loop + LangChain tool definitions |
-| **Structured Output** | Pydantic v2 + instructor |
-| **Data Processing** | Pandas, NumPy |
-| **Visualization** | Matplotlib, Seaborn, Plotly |
-| **Code Execution** | E2B Sandbox (cloud) / subprocess fallback (local) |
-| **Frontend** | Streamlit |
-| **Environment** | Python 3.11+, Docker |
+| Language | Python 3.11+ |
+| Frontend | Streamlit |
+| Agent | Custom ReAct loop |
+| LLM Providers | OpenAI GPT-4o (default), Anthropic Claude Sonnet |
+| Structured Output | Pydantic v2 + instructor |
+| Data | Pandas, NumPy |
+| Charts | Matplotlib, Seaborn, Plotly |
+| Execution | E2B sandbox (primary), subprocess fallback |
+| Testing | pytest |
+| Containerization | Docker |
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-```
-ai-data-analyst-agent/
-├── app.py                      # Streamlit UI entry point
-├── agent/
-│   ├── core.py                 # Custom ReAct loop implementation
-│   ├── tools.py                # Tool definitions (execute_code, describe_data)
-│   ├── prompt.py               # Dynamic system prompt builder with schema injection
-│   └── memory.py               # Session conversation history
-├── executor/
-│   ├── sandbox.py              # E2B sandbox wrapper
-│   └── local_exec.py           # Subprocess fallback executor
-├── parser/
-│   └── file_parser.py          # CSV / Excel / JSON ingestion + schema extraction
-├── renderer/
-│   └── output.py               # Table + chart rendering utilities
-├── tests/
-│   └── test_agent.py           # Unit + integration tests
-├── .env.example
-├── requirements.txt
-├── Dockerfile
-└── README.md
+```text
+app.py
+agent/
+  core.py
+  memory.py
+  prompt.py
+  tools.py
+executor/
+  sandbox.py
+  local_exec.py
+parser/
+  file_parser.py
+renderer/
+  output.py
+tests/
+  test_agent.py
+Dockerfile
+requirements.txt
+README.md
 ```
 
 ---
 
-## Quick Start
+## 🚀 Local Setup (Recommended)
 
-### 1. Clone the repo
+### 1) Clone
 
 ```bash
 git clone https://github.com/kushalmehta2004/ai-data-analyst-agent.git
 cd ai-data-analyst-agent
 ```
 
-### 2. Set up environment
+### 2) Create virtual environment
+
+**Windows (PowerShell):**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS/Linux:**
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 3) Install dependencies
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Configure API keys
+### 4) Configure environment variables
 
-```bash
-cp .env.example .env
-# Edit .env with your keys
-```
+Create `.env` from `.env.example` and set keys:
 
 ```env
-LLM_PROVIDER=openai            # or anthropic
+LLM_PROVIDER=openai            # openai | anthropic
 OPENAI_API_KEY=sk-...
-ANTHROPIC_API_KEY=sk-ant-...   # optional
-E2B_API_KEY=...                # optional — uses local subprocess if not set
+ANTHROPIC_API_KEY=sk-ant-...   # required only when LLM_PROVIDER=anthropic
+E2B_API_KEY=...                # optional; fallback to local subprocess if omitted
 ```
 
-### 4. Run the app
+### 5) Run app
 
 ```bash
 streamlit run app.py
 ```
 
-Open [http://localhost:8501](http://localhost:8501)
+Open: http://localhost:8501
 
 ---
 
-## Docker
+## 🐳 Docker Setup
+
+### Build image
 
 ```bash
 docker build -t ai-data-analyst-agent .
+```
+
+### Run container
+
+```bash
 docker run -p 8501:8501 --env-file .env ai-data-analyst-agent
 ```
 
----
-
-## Try These Example Questions
-
-Load the **Titanic dataset** (`train.csv`) and try:
-- *"What is the survival rate by passenger class?"*
-- *"Show me the age distribution of survivors vs non-survivors as a histogram"*
-- *"Which features have the strongest correlation with survival?"*
-
-Load the **Superstore Sales dataset** and try:
-- *"What are the top 5 products by profit margin?"*
-- *"Show monthly sales trend as a line chart"*
-- *"Which region is underperforming? Show me a breakdown"*
-
-Load any **COVID dataset** and try:
-- *"Plot the 7-day rolling average of new cases"*
-- *"Which countries had the fastest growth rate in week 3?"*
+App URL: http://localhost:8501
 
 ---
 
-## How the Agent Thinks (ReAct Trace)
+## 💬 Example Questions
 
-Every response shows an expandable **"Agent Thinking"** panel:
+### Titanic-style dataset
+- What is the survival rate by passenger class?
+- Compare average fare by class and gender.
+- Show class-wise passenger counts.
 
-```
-💭 Thought: The user wants sales grouped by region. I'll use groupby on the 'Region'
-            column and sum 'Sales'. Then I'll create a bar chart.
+### Superstore-style sales dataset
+- Show me a bar chart of sales by region.
+- Which category has the highest total sales?
+- Show monthly sales trend as a line chart.
 
-⚡ Action: execute_python_code
-   Input:  result = df.groupby('Region')['Sales'].sum().reset_index()
-           result = result.sort_values('Sales', ascending=False)
-           plt.figure(figsize=(10, 6))
-           plt.bar(result['Region'], result['Sales'])
-           plt.title('Total Sales by Region')
-           plt.xlabel('Region')
-           plt.ylabel('Sales ($)')
-
-👁 Observation: Chart generated successfully. DataFrame with 4 rows returned.
-
-✅ Final Answer: Here's the sales breakdown by region. The West leads with $725K,
-                followed by East at $678K...
-```
+### COVID-style cases dataset
+- Aggregate total new cases by location.
+- Show top 10 locations by new cases.
+- Plot rolling average of new cases over time.
 
 ---
 
-## Running Tests
+## 🧪 Testing
+
+Run all tests:
 
 ```bash
-pytest tests/ -v
+pytest tests/ -q
 ```
 
-Tests cover:
-- File parsing (CSV, Excel, JSON, malformed files)
-- Self-correction loop (mock failures → recovery)
-- Column name validation (hallucination guard)
-- End-to-end integration with Titanic, Superstore, COVID datasets
+Phase 6 test coverage includes:
+- Unit tests for file parsing (CSV/Excel/JSON, malformed files, file-size guard)
+- Self-correction loop behavior
+- Column hallucination validation
+- Integration-style scenarios for Titanic, Superstore chart output, and COVID aggregation
 
 ---
 
-## Why This Project
+## 🔐 Execution Model
 
-This project demonstrates:
-
-1. **Agentic AI design** — building a stateful, multi-step reasoning loop from scratch
-2. **Code generation + execution** — LLM writes runnable Python, not just descriptions
-3. **Sandboxed environments** — secure execution with E2B, a real production pattern
-4. **Self-correcting systems** — error recovery without human intervention
-5. **Full-stack AI development** — from LLM API calls to a polished, usable UI
+- Primary: **E2B sandbox** (isolated execution environment)
+- Fallback: **local subprocess** with timeout
+- DataFrame is preloaded as `df`
+- Recent table outputs are retained for follow-up analysis via `prior_results`
 
 ---
 
-## License
+## 📤 Output Types
 
-MIT — see [LICENSE](LICENSE)
+- **Table output**: rendered in chat + CSV download button
+- **Chart output**: rendered in chat + PNG download button
+- **Text output**: markdown/code block summaries
+- **Agent trace**: expandable “Agent Thinking” section for each response
+
+---
+
+## 🛠 Troubleshooting
+
+- `OPENAI_API_KEY is not set`: add key in `.env` and restart app.
+- `ANTHROPIC_API_KEY is not set`: set only when `LLM_PROVIDER=anthropic`.
+- E2B unavailable: app automatically falls back to local executor.
+- Empty/invalid file upload: ensure valid CSV/Excel/JSON and file size under 50MB.
+
+---
+
+## 🌐 Try It Yourself
+
+- Live demo link: **Coming soon**
+- Demo GIF: add your recording at `assets/demo.gif` (recommended 60–90s flow)
+
+---
+
+## 🤝 Why This Project Matters
+
+This project demonstrates practical agent engineering:
+- Custom orchestration logic instead of black-box agent wrappers
+- Reliable structured extraction for LLM outputs
+- Secure code execution patterns
+- Automatic error recovery with retry loops
+- End-to-end product thinking (UI, backend, tests, and deployment)
+
+---
+
+## 📄 License
+
+MIT
 
 ---
 
 <div align="center">
 
-Built with Python 3.11 · LangChain · OpenAI GPT-4o · E2B · Streamlit
-
-**[⭐ Star this repo](https://github.com/kushalmehta2004/ai-data-analyst-agent)** if you found it useful
+Built with Python · Streamlit · OpenAI/Anthropic · E2B · Pandas
 
 </div>
