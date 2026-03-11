@@ -37,7 +37,15 @@ This is a portfolio-grade, agentic AI application focused on **real execution**,
 - Phase 3: Output rendering (table/chart/text) — Complete
 - Phase 4: Self-correction loop — Complete
 - Phase 5: E2B sandbox + session memory + export buttons — Complete
-- Phase 6: Testing + README + Docker hardening — In Progress
+- Phase 6: Testing + README + Docker hardening — Complete
+
+---
+
+## 📝 Phase 6 Completion Notes
+
+- Expanded automated tests with integration-style scenarios across Titanic, Superstore (chart output), and COVID aggregation flows.
+- Finalized comprehensive README documentation covering local setup, runtime behavior, testing, Docker, and troubleshooting.
+- Verified test health after updates: `34 passed, 5 skipped`.
 
 ---
 

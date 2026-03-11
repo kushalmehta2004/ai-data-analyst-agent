@@ -9,7 +9,7 @@
 
 - **GitHub:** https://github.com/kushalmehta2004/ai-data-analyst-agent.git
 - **Owner:** kushalmehta2004
-- **Status:** In Development (Phase 6 In Progress)
+- **Status:** In Development (Phase 6 Complete)
 
 ---
 
@@ -119,10 +119,18 @@ ai-data-analyst-agent/
 | **Phase 3** | Chart + table rendering inline in chat | ✅ Done |
 | **Phase 4** | Self-correction loop (3 retries) | ✅ Done |
 | **Phase 5** | E2B sandbox + session memory + export buttons | ✅ Done |
-| **Phase 6** | Testing (3 datasets) + README + Docker | 🔄 In Progress |
+| **Phase 6** | Testing (3 datasets) + README + Docker | ✅ Done |
 | **Buffer** | Polish + query suggestions + deploy + publish | ⬜ Not Started |
 
 > Update status to 🔄 In Progress / ✅ Done as phases complete.
+
+---
+
+## Recent Updates (Phase 6)
+
+- Added expanded test coverage in `tests/test_agent.py` including integration-style scenarios for Titanic, Superstore chart output, and COVID aggregation output.
+- Refreshed `README.md` with complete setup/run documentation (Windows + macOS/Linux), architecture diagrams (Mermaid), Docker usage, troubleshooting, and testing coverage.
+- Verified test suite after updates: `34 passed, 5 skipped`.
 
 ---
 
@@ -263,4 +271,4 @@ docker run -p 8501:8501 --env-file .env ai-data-analyst-agent
 
 ---
 
-*Last updated: March 2026 | Phase: Phase 6 in progress*
+*Last updated: March 2026 | Phase: Phase 6 complete*
