@@ -28,6 +28,14 @@ This is a portfolio-grade, agentic AI application focused on **real execution**,
 - Multi-turn memory supports follow-ups like “now break that down by month”
 - Download outputs as **PNG** (charts) and **CSV** (tables)
 
+<img width="1372" height="467" alt="1" src="https://github.com/user-attachments/assets/c00e899f-a459-45f1-a701-66b6c838ca9f" />
+<img width="1696" height="537" alt="2" src="https://github.com/user-attachments/assets/40768243-3530-4dcd-a9a2-9f54c48581d2" />
+<img width="792" height="698" alt="3" src="https://github.com/user-attachments/assets/b82b4176-0459-442b-acc4-238d7c394e90" />
+<img width="1577" height="965" alt="4" src="https://github.com/user-attachments/assets/5e0ca1bc-aa53-4888-ae95-3ea04846a338" />
+<img width="1586" height="953" alt="5" src="https://github.com/user-attachments/assets/851a4447-0d96-4cac-9bd7-de46df68373e" />
+<img width="1578" height="952" alt="6" src="https://github.com/user-attachments/assets/bc808cc5-1a13-4225-b328-9f49099be339" />
+
+
 ---
 
 ## ✅ Current Status
